@@ -1,6 +1,14 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+    <h2>Username: {{ currentUser.username }}</h2>
+    <h4>Here's your collection:</h4>
+    <div v-for="currentGame in currentUser.users_games" :key="currentGame.id">
+      <router-link v-bind:to="`/games/${currentGame.id}`">
+      <h6>{{ currentGame.name }}</h6>
+      <img v-bind:src="`${currentGame.boxart}`" alt="" />
+      </router-link>
+    </div>
     <button v-on:click="createGameForm()">Add a game to my collection</button>
     <dialog id="game-details">
       <form method="dialog">
@@ -47,10 +55,16 @@ export default {
       newDuration: "",
       newDifficulty: "",
       newBoxart: "",
+      games: [],
+      currentUser: [],
     };
   },
+  // Backend logic allows for current_user to always be shown on this get request
   created: function() {
-
+    axios.get("/api/users/1").then(response => {
+      console.log("Showing this users games", response.data);
+      this.currentUser = response.data;
+    });
   },
   methods: {
     createGame: function() {

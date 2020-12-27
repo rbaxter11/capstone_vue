@@ -1,37 +1,109 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/signup">Signup</router-link> |
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/logout">Logout</router-link> |
-      <router-link to="/profile">My Profile</router-link>
+    <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Board Game App</a>
+  <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span> -->
+  <!-- </button> -->
+  <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
+    <div class="navbar-nav">
+      <a class="nav-link active" href="/profile">My Collection <span class="sr-only">(current)</span></a>
+      <a class="nav-link active" href="/signup">Signup</a>
+      <a class="nav-link active" href="/login">Login</a>
+      <a class="nav-link active" href="/logout">Logout</a>
     </div>
+  <!-- </div> -->
+</nav>
     <router-view />
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+
+
+nav {
+  font-family: Cambria, Georgia, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+}
+img {
+  width: 200px;
+  height: 200px;
 }
 
-#nav {
-  padding: 30px;
+button {
+  font-family: Cambria, Georgia, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+} 
+h1 {
+  font-family: Cambria, Georgia, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+h2 {
+  font-family: Cambria, Georgia, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+h3 {
+  font-family: Cambria, Georgia, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+h5 {
+  font-family: Cambria, Georgia, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+h6 {
+  font-family: Cambria, Georgia, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 15.4px;
+}
+p {
+  font-family: Cambria, Georgia, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+blockquote {
+  font-family: Cambria, Georgia, serif;
+  font-size: 21px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+pre {
+  font-family: Cambria, Georgia, serif;
+  font-size: 13px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 18.5714px;
 }
 </style>
