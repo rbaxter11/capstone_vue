@@ -26,8 +26,9 @@ export default {
     });
   },
   methods: {
-    deleteGame: function(game) {
-      axios.delete("api/games/" + game.id).then(response => {
+    deleteGame: function() {
+      // Need to get the games_ownerships.id for the current game
+      axios.delete("api/game_ownerships/" + this.ownership.id).then(response => {
         console.log("Game deleted", response.data);
         this.$router.push("/profile");
       });

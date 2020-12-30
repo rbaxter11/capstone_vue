@@ -61,7 +61,7 @@ export default {
   },
   // Backend logic allows for current_user to always be shown on this get request
   created: function() {
-    axios.get("/api/users/1").then(response => {
+    axios.get("/api/users/" + localStorage.getItem("user_id")).then(response => {
       console.log("Showing this users games", response.data);
       this.currentUser = response.data;
     });
