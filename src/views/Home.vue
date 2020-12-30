@@ -10,7 +10,10 @@
       
       <h5>Location Name: {{ meetup.location_name }}</h5>
       <p>Game: {{ meetup.game_name }}</p>
-      <p>Players: {{ meetup.host_name }} and {{ meetup.participant_name }}</p>
+      <p>Players:</p>
+      <div v-for="player in meetup.players" :key="player.id">
+        <p>{{ player.username }}</p>
+      </div>
       <p>Time: {{ meetup.start_time }}</p>
       <button v-on:click="showMeetup(meetup)">Details, Edit, Delete!</button>
     </div>
@@ -76,6 +79,7 @@ export default {
     return {
       message: "Welcome to Meetups Index",
       meetups: [],
+      players: [],
       newLocation: "",
       newGameId: "",
       newParticipantId: "",
@@ -89,7 +93,7 @@ export default {
     axios.get("/api/meetups").then(response => {
       this.meetups = response.data;
       console.log("All Meetups:", this.meetups);
-    });
+});
   },
   methods: {
     createMeetup: function() {
