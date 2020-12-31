@@ -6,6 +6,7 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Profile from "../views/Profile.vue";
 import GamesShow from "../views/GamesShow.vue";
+import GamesIndex from "../views/GamesIndex.vue";
 
 Vue.use(VueRouter);
 
@@ -28,6 +29,7 @@ const routes = [
   { path: "/logout", name: "logout", component: Logout },
   { path: "/profile", name: "profile", component: Profile },
   { path: "/games/:id", name: "games-show", component: GamesShow },
+  { path: "/games/", name: "games-index", component: GamesIndex },
 ];
 
 const router = new VueRouter({

@@ -27,8 +27,7 @@ export default {
   },
   methods: {
     deleteGame: function() {
-      // Need to get the games_ownerships.id for the current game
-      axios.delete("api/game_ownerships/" + this.ownership.id).then(response => {
+      axios.delete("api/game_ownerships/" + this.game.ownership.id).then(response => {
         console.log("Game deleted", response.data);
         this.$router.push("/profile");
       });

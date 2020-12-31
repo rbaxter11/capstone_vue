@@ -7,7 +7,11 @@
   <!-- </button> -->
   <!-- <div class="collapse navbar-collapse" id="navbarNavAltMarkup"> -->
     <div class="navbar-nav">
-      <a class="nav-link active" href="/profile">My Collection <span class="sr-only">(current)</span></a>
+        <a class="nav-link active" href="/profile">
+          My Collection
+          <span class="sr-only">(current)</span>
+        </a>
+      <a class="nav-link active" href="/games">Game Database</a>
       <a class="nav-link active" href="/signup">Signup</a>
       <a class="nav-link active" href="/login">Login</a>
       <a class="nav-link active" href="/logout">Logout</a>
