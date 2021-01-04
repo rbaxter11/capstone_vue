@@ -25,7 +25,7 @@
           <input type="text" v-model="currentMeetup.location_name" />
         </p>
         <p>
-          Game ID:
+          Game (search by name):
           <input type="text" v-model="currentMeetup.game_id" />
         </p>
 
@@ -50,16 +50,24 @@
           <input type="text" v-model="newLocation" />
         </p>
         <p>
+          When does it start?:
+          <input type="text" v-model="newStartTime" />
+        </p>
+        <p>
           Game:
-          <input type="text" v-model="newGameId" />
+          <!-- <input type="text" v-model="newGameId" /> -->
+          <select v-model="newGameId">
+            <option disabled value="">Please select one</option>
+            <option v-for="game in games" :key="game.id">{{ game.name }}</option>
+          </select>
         </p>
         <p>
           Who's joining you?:
-          <input type="text" v-model="newParticipantId" />
-        </p>
-        <p>
-          When does it start?:
-          <input type="text" v-model="newStartTime" />
+          <!-- <input type="text" v-model="newParticipantId" /> -->
+          <select v-model="newParticipantId">
+            <option disabled value="">Please select one</option>
+            <option v-for="user in users" :key="user.id">{{ user.username }}</option>
+          </select>
         </p>
         <button v-on:click="createMeetup()">Create</button>
         <button>Close</button>
@@ -87,6 +95,9 @@ export default {
       currentMeetup: {},
       currentUser: [],
       errors: [],
+      selected: "",
+      games: [],
+      users: [],
     };
   },
   created: function() {
@@ -111,6 +122,15 @@ export default {
     },
     createMeetupForm: function() {
       document.querySelector("#meetup-create").showModal();
+      axios.get("api/games").then(response => {
+        console.log("All games:", response.data);
+        this.games = response.data;
+      });
+      axios.get("api/users").then(response => {
+        console.log("All users:", response.data);
+        this.users = response.data;
+      });
+
     },
     showMeetup: function(meetup) {
       console.log(meetup);
@@ -135,10 +155,10 @@ export default {
         this.meetups.splice(index, 1);
       });
     },
-    getUser: function() {
-      axios.get("api/users/1").then(response => {
+    getGames: function() {
+      axios.get("api/games").then(response => {
         console.log(response.data);
-        this.currentUser = response.data;
+        this.games = response.data;
       });
     },
   },
