@@ -7,6 +7,8 @@ import Logout from "../views/Logout.vue";
 import Profile from "../views/Profile.vue";
 import GamesShow from "../views/GamesShow.vue";
 import GamesIndex from "../views/GamesIndex.vue";
+import UsersIndex from "../views/UsersIndex.vue";
+import UsersShow from "../views/UsersShow.vue";
 
 Vue.use(VueRouter);
 
@@ -30,6 +32,8 @@ const routes = [
   { path: "/profile", name: "profile", component: Profile },
   { path: "/games/:id", name: "games-show", component: GamesShow },
   { path: "/games/", name: "games-index", component: GamesIndex },
+  { path: "/users/", name: "users-index", component: UsersIndex },
+  { path: "/users/:id", name: "users-show", component: UsersShow },
 ];
 
 const router = new VueRouter({

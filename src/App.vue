@@ -11,6 +11,7 @@
           My Collection
           <span class="sr-only">(current)</span>
         </a>
+      <a class="nav-link active" href="/users">User Database</a>
       <a class="nav-link active" href="/games">Game Database</a>
       <a class="nav-link active" href="/signup">Signup</a>
       <a class="nav-link active" href="/login">Login</a>
@@ -80,12 +81,13 @@ h5 {
 }
 h6 {
   font-family: Cambria, Georgia, serif;
-  font-size: 14px;
-  font-style: normal;
+  font-size: 8px;
+  font-style: italic;
   font-variant: normal;
   font-weight: 700;
   line-height: 15.4px;
 }
+
 p {
   font-family: Cambria, Georgia, serif;
   font-size: 14px;
