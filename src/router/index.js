@@ -9,6 +9,7 @@ import GamesShow from "../views/GamesShow.vue";
 import GamesIndex from "../views/GamesIndex.vue";
 import UsersIndex from "../views/UsersIndex.vue";
 import UsersShow from "../views/UsersShow.vue";
+import MeetupsShow from "../views/MeetupsShow.vue";
 
 Vue.use(VueRouter);
 
@@ -34,6 +35,7 @@ const routes = [
   { path: "/games/", name: "games-index", component: GamesIndex },
   { path: "/users/", name: "users-index", component: UsersIndex },
   { path: "/users/:id", name: "users-show", component: UsersShow },
+  { path: "/meetups/:id", name: "meetups-show", component: MeetupsShow },
 ];
 
 const router = new VueRouter({

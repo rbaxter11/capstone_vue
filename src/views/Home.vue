@@ -1,5 +1,9 @@
 <template>
   <div class="home">
+    <div v-if="isLoggedIn()">
+    <h3>Invitations you've sent:</h3>
+    <h3>Invites awaiting approval:</h3>
+    </div>
     <h1>{{ message }}</h1>
     <ul>
       <li class="text-danger" v-for="error in errors" :key="error.id">{{ error }}</li>
@@ -7,8 +11,9 @@
     
     <button v-on:click="createMeetupForm()">Create a new meetup</button>
     <div v-for="meetup in meetups" :key="meetup.id">
-      
+      <router-link v-bind:to="`/meetups/${meetup.id}`">
       <h5>Location Name: {{ meetup.location_name }}</h5>
+      </router-link>
       <p>Game: {{ meetup.game_name }}</p>
       <p>Players:</p>
       <div v-for="player in meetup.players" :key="player.id">
@@ -16,33 +21,7 @@
       </div>
       <p>{{ meetup.start_time | formatDate }}</p>
       <p>{{ meetup.start_time | fromNow }}</p>
-      <button v-on:click="showMeetup(meetup)">Details, Edit, Delete!</button>
     </div>
-    <dialog id="meetup-details">
-      <form method="dialog">
-        <h1>Meetup Details</h1>
-        <p>
-          Location Name:
-          <input type="text" v-model="currentMeetup.location_name" />
-        </p>
-        <p>
-          Game (search by name):
-          <input type="text" v-model="currentMeetup.game_id" />
-        </p>
-
-        <p>
-          Participant ID:
-          <input type="text" v-model="currentMeetup.participant_id" />
-        </p>
-        <p>
-          Start Time:
-          <input type="text" v-model="currentMeetup.start_time" />
-        </p>
-        <button v-on:click="updateMeetup(currentMeetup)">Update</button>
-        <button v-on:click="deleteMeetup(currentMeetup)">Delete</button>
-        <button>Close</button>
-      </form>
-    </dialog>
     <dialog id="meetup-create">
       <form method="dialog">
         <h1>Create a meetup</h1>
@@ -63,14 +42,13 @@
             <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
           </select>
         </p>
-        <p>
+        <!-- <p>
           Who's joining you?:
-          <!-- <input type="text" v-model="newParticipantId" /> -->
           <select v-model="newParticipantId">
             <option disabled value="">Please select one</option>
             <option v-for="user in users" :key="user.id">{{ user.username }}</option>
           </select>
-        </p>
+        </p> -->
         <button v-on:click="createMeetup()">Create</button>
         <button>Close</button>
       </form>
@@ -121,6 +99,7 @@ export default {
       axios.post("/api/meetups", params).then(response => {
         console.log("Successfully created meetup", response.data);
         this.meetups.push(response.data);
+        this.$router.push("/meetups/" + response.data.id);
       });
     },
     createMeetupForm: function() {
@@ -158,11 +137,12 @@ export default {
         this.meetups.splice(index, 1);
       });
     },
-    getGames: function() {
-      axios.get("api/games").then(response => {
-        console.log(response.data);
-        this.games = response.data;
-      });
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   filters: {
