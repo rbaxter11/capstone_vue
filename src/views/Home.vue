@@ -52,7 +52,8 @@
         </p>
         <p>
           When does it start?:
-          <input type="text" v-model="newStartTime" />
+          <!-- <input type="text" v-model="newStartTime" /> -->
+        <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
         </p>
         <p>
           Game:
@@ -172,5 +173,7 @@ export default {
       return moment(date).endOf('day').fromNow();
     },
   },
+  components: {
+  }
 };
 </script>
