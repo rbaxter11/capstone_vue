@@ -9,7 +9,7 @@
     </h2>
     <div v-for="game in filterBy(games, nameFilter, 'name')" :key="game.id">
       <h6>{{ game.name }}</h6>
-      <img v-bind:src="`${game.boxart}`" alt="">
+      <img v-bind:src="`${game.boxart}`" alt="" />
       <button v-on:click="addGame(game)">I own this game!</button>
     </div>
   </div>

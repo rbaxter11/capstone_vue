@@ -14,7 +14,8 @@
       <div v-for="player in meetup.players" :key="player.id">
         <p>{{ player.username }}</p>
       </div>
-      <p>Time: {{ meetup.start_time }}</p>
+      <p>{{ meetup.start_time | formatDate }}</p>
+      <p>{{ meetup.start_time | fromNow }}</p>
       <button v-on:click="showMeetup(meetup)">Details, Edit, Delete!</button>
     </div>
     <dialog id="meetup-details">
@@ -58,7 +59,7 @@
           <!-- <input type="text" v-model="newGameId" /> -->
           <select v-model="newGameId">
             <option disabled value="">Please select one</option>
-            <option v-for="game in games" :key="game.id">{{ game.name }}</option>
+            <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
           </select>
         </p>
         <p>
@@ -81,6 +82,7 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
 
 export default {
   data: function() {
@@ -160,6 +162,14 @@ export default {
         console.log(response.data);
         this.games = response.data;
       });
+    },
+  },
+  filters: {
+    formatDate: function (date) {
+      return moment(date).format('MMMM Do YYYY, h:mm a');
+    },
+    fromNow: function (date) {
+      return moment(date).endOf('day').fromNow();
     },
   },
 };
