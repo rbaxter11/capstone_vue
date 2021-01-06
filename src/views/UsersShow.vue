@@ -5,7 +5,16 @@
     <div v-for="game in user.users_games" :key="game.id">
         <h6>{{ game.name }}</h6>
       </div>
-      <button>Invite this user to a Meetup!</button>
+      <button v-on:click="showInvite()">Invite this user to a Meetup!</button>
+      <dialog id="meetup-details">
+        <form method="dialog">
+          <div v-for="meetup in meetups" :key="meetup.id">
+            {{ meetup.location_name }}
+            <button v-on:click="sendInvite(meetup)">Invite 'em!</button>
+          </div>
+          <button>close</button>
+        </form>
+      </dialog>
   </div>
 </template>
 
@@ -17,6 +26,7 @@ export default {
     return {
       message: "Welcome to the Users Index",
       user: [],
+      meetups: [],
     };
   },
   created: function() {
@@ -24,16 +34,24 @@ export default {
       this.user = response.data;
       console.log("Showing a user", this.user);
 });
+    axios.get("/api/meetups").then(response => {
+      this.meetups = response.data;
+      console.log("Showing all meetups", this.meetups);
+});
   },
   methods: {
-    sendInvite: function(user) {
+    sendInvite: function(meetup) {
       var params = {
-        meetup_id: this.meetups.id,
-        user_id: user.id,
+        meetup_id: meetup.id,
+        user_id: this.user.id,
       };
       axios.post("api/meetup_invitations/", params).then(response => {
         console.log("Invitation sent!"), response.data;
       });
+    },
+    showInvite: function() {
+      console.log("Pick a meetup");
+      document.querySelector("#meetup-details").showModal();
     },
   },
 };

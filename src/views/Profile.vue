@@ -1,23 +1,29 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <div v-if="isLoggedIn()">
-    <h3>Invitations you've sent:</h3>
+    <div v-if="currentUserInvites.accepted === 'false'">
     <h3>Invites awaiting approval:</h3>
+    </div>
     <div v-for="invitation in currentUser.invitations" :key="invitation.id">
       <h6>Invite from {{ invitation.host_name }}</h6>
       <button v-on:click="showInvite(invitation)">View</button>
       <dialog id="invite-details">
           <form method="dialog">
             <h2>Invitation Details</h2>
-            <h6>Invite from: {{ invitation.invited_by_id }}</h6>
+            <h6>Invite from: {{ invitation.host_name }}</h6>
+            <h6>Game to be played: {{ invitation.game_name }}</h6>
+            <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
+            <div v-for="meetup in invitation.meetups" :key="meetup.id">
+            <!-- <h6>Start Time: {{ invitation.host_name }}</h6> -->
+            <h6>Location: {{ meetup.location_name }}</h6>
+            </div>
             <button>Close</button>
           </form>
       </dialog>
-      <button>Accept</button>
-      <button>Decline</button>
+      <button v-on:click="acceptInvite(invitation)">Accept</button>
+      <button v-on:click="declineInvite(invitation)">Decline</button>
     </div>
-    </div>
+    
     <h2>Username: {{ currentUser.username }}</h2>
     <h4>Here's your collection:</h4>
     <div v-for="currentGame in currentUser.users_games" :key="currentGame.id">
@@ -74,13 +80,15 @@ export default {
       newBoxart: "",
       games: [],
       currentUser: [],
+      currentUserInvites: [],
     };
   },
-  // Backend logic allows for current_user to always be shown on this get request
   created: function() {
     axios.get("/api/users/" + localStorage.getItem("user_id")).then(response => {
       console.log("Showing users' data", response.data);
       this.currentUser = response.data;
+      this.currentUserInvites = response.data.invitations;
+      console.log("Showing users' invitations", this.currentUserInvites);
     });
   },
   methods: {
@@ -112,6 +120,22 @@ export default {
       console.log("Invitation details", invitation);
       // this.currentMeetup = meetup;
       document.querySelector("#invite-details").showModal();
+    },
+    acceptInvite: function(invitation) {
+      var params = {
+        accepted: true,
+      };
+      axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
+        console.log("Invitation Accepted!", response.data);
+      });
+    },
+    declineInvite: function(invitation) {
+      var params = {
+        accepted: false,
+      };
+      axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
+        console.log("Invitation Declined!", response.data);
+      });
     },
   },
 };
