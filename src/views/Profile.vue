@@ -1,6 +1,23 @@
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
+    <div v-if="isLoggedIn()">
+    <h3>Invitations you've sent:</h3>
+    <h3>Invites awaiting approval:</h3>
+    <div v-for="invitation in currentUser.invitations" :key="invitation.id">
+      <h6>Invite from {{ invitation.host_name }}</h6>
+      <button v-on:click="showInvite(invitation)">View</button>
+      <dialog id="invite-details">
+          <form method="dialog">
+            <h2>Invitation Details</h2>
+            <h6>Invite from: {{ invitation.invited_by_id }}</h6>
+            <button>Close</button>
+          </form>
+      </dialog>
+      <button>Accept</button>
+      <button>Decline</button>
+    </div>
+    </div>
     <h2>Username: {{ currentUser.username }}</h2>
     <h4>Here's your collection:</h4>
     <div v-for="currentGame in currentUser.users_games" :key="currentGame.id">
@@ -83,6 +100,18 @@ export default {
     },
     createGameForm: function() {
       document.querySelector("#game-details").showModal();
+    },
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    showInvite: function(invitation) {
+      console.log("Invitation details", invitation);
+      // this.currentMeetup = meetup;
+      document.querySelector("#invite-details").showModal();
     },
   },
 };

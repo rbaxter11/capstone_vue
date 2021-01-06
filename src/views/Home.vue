@@ -1,9 +1,5 @@
 <template>
   <div class="home">
-    <div v-if="isLoggedIn()">
-    <h3>Invitations you've sent:</h3>
-    <h3>Invites awaiting approval:</h3>
-    </div>
     <h1>{{ message }}</h1>
     <ul>
       <li class="text-danger" v-for="error in errors" :key="error.id">{{ error }}</li>

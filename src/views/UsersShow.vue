@@ -26,15 +26,15 @@ export default {
 });
   },
   methods: {
-    // addGame: function(game) {
-    //   var params = {
-    //     game_id: game.id,
-    //     user_id: localStorage.getItem("user_id"),
-    //   }
-    //   axios.post("api/game_ownerships/", params).then(response => {
-    //     console.log("Game added to collection"), response.data;
-    //   })
-    // }
+    sendInvite: function(user) {
+      var params = {
+        meetup_id: this.meetups.id,
+        user_id: user.id,
+      };
+      axios.post("api/meetup_invitations/", params).then(response => {
+        console.log("Invitation sent!"), response.data;
+      });
+    },
   },
 };
 </script>
