@@ -13,10 +13,10 @@
             <h6>Invite from: {{ invitation.host_name }}</h6>
             <h6>Game to be played: {{ invitation.game_name }}</h6>
             <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
-            <div v-for="meetup in invitation.meetups" :key="meetup.id">
+            <!-- <div v-for="meetup in invitation.meetups" :key="meetup.id"> -->
             <!-- <h6>Start Time: {{ invitation.host_name }}</h6> -->
-            <h6>Location: {{ meetup.location_name }}</h6>
-            </div>
+            <!-- <h6>Location: {{ meetup.location_name }}</h6> -->
+            <!-- </div> -->
             <button>Close</button>
           </form>
       </dialog>

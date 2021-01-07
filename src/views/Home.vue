@@ -1,22 +1,52 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
     <ul>
       <li class="text-danger" v-for="error in errors" :key="error.id">{{ error }}</li>
     </ul>
-    
+
     <button v-on:click="createMeetupForm()">Create a new meetup</button>
-    <div v-for="meetup in meetups" :key="meetup.id">
-      <router-link v-bind:to="`/meetups/${meetup.id}`">
-      <h5>Location Name: {{ meetup.location_name }}</h5>
-      </router-link>
-      <p>Game: {{ meetup.game_name }}</p>
-      <p>Players:</p>
-      <div v-for="player in meetup.players" :key="player.id">
+    <div class=" pt90 pb60">
+      <div class="container">
+        <div class="title-heading1 mb40">
+          <h3>Upcoming Meetups</h3>
+        </div>
+          <div class="card-group">
+            <div class="col-sm-4 mb30 wow fadeInUp" data-wow-delay=".2s" style="width: 50rem;" v-for="meetup in meetups" :key="meetup.id">
+              <div class="entry-card">
+                <a href="`/meetups/${meetup.id}`" class="entry-thumb">
+                  <img src="images/entry1.jpg" alt="" class="img-fluid" />
+                  <span class="thumb-hover ti-back-right"></span>
+                </a>
+                <!--/entry thumb-->
+                <div class="entry-content">
+                  <div class="entry-meta mb5">
+                    <span>
+                      {{ meetup.start_time | formatDate }}
+                    </span>
+                  </div>
+                  <h4 class="entry-title text-capitalize">
+                    <a href="`/meetups/${meetup.id}`">
+                      {{ meetup.location_name }}
+                    </a>
+                  </h4>
+                  <p>
+                    Game: {{ meetup.game_name }}
+                  </p>
+                  <p>
+                    <p>Players:</p>
+<div v-for="player in meetup.players" :key="player.id">
         <p>{{ player.username }}</p>
       </div>
-      <p>{{ meetup.start_time | formatDate }}</p>
-      <p>{{ meetup.start_time | fromNow }}</p>
+                  <div class="text-right">
+                    <a href="/meetups/${meetup.id}" class="btn-link btn">Read More</a>
+                  </div>
+                </div>
+                <!--/entry content-->
+            </div>
+            <!--/.col-->
+          </div>
+        </div>
+      </div>
     </div>
     <dialog id="meetup-create">
       <form method="dialog">
@@ -28,7 +58,7 @@
         <p>
           When does it start?:
           <!-- <input type="text" v-model="newStartTime" /> -->
-        <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
+          <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
         </p>
         <p>
           Game:
@@ -52,8 +82,7 @@
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import axios from "axios";
@@ -62,7 +91,7 @@ import moment from "moment";
 export default {
   data: function() {
     return {
-      message: "Welcome to Meetups Index",
+      message: "Upcoming Meetups",
       meetups: [],
       players: [],
       newLocation: "",
@@ -81,7 +110,7 @@ export default {
     axios.get("/api/meetups").then(response => {
       this.meetups = response.data;
       console.log("All Meetups:", this.meetups);
-});
+    });
   },
   methods: {
     createMeetup: function() {
@@ -90,7 +119,6 @@ export default {
         location_name: this.newLocation,
         start_time: this.newStartTime,
         game_id: this.newGameId,
-        participant_id: this.newParticipantId,
       };
       axios.post("/api/meetups", params).then(response => {
         console.log("Successfully created meetup", response.data);
@@ -108,7 +136,6 @@ export default {
         console.log("All users:", response.data);
         this.users = response.data;
       });
-
     },
     showMeetup: function(meetup) {
       console.log(meetup);
@@ -142,14 +169,26 @@ export default {
     },
   },
   filters: {
-    formatDate: function (date) {
-      return moment(date).format('MMMM Do YYYY, h:mm a');
+    formatDate: function(date) {
+      return moment(date).format("MMMM Do YYYY, h:mm a");
     },
-    fromNow: function (date) {
-      return moment(date).endOf('day').fromNow();
+    fromNow: function(date) {
+      return moment(date)
+        .endOf("day")
+        .fromNow();
     },
   },
-  components: {
-  }
+  components: {},
 };
 </script>
+
+<router-link v-bind:to="`/meetups/${meetup.id}`">
+        <h5>Location Name: {{ meetup.location_name }}</h5>
+      </router-link>
+<p>Game: {{ meetup.game_name }}</p>
+<p>Players:</p>
+<div v-for="player in meetup.players" :key="player.id">
+        <p>{{ player.username }}</p>
+      </div>
+<p>{{ meetup.start_time | formatDate }}</p>
+<p>{{ meetup.start_time | fromNow }}</p>

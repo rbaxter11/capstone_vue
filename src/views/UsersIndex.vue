@@ -31,15 +31,6 @@ export default {
 });
   },
   methods: {
-    // addGame: function(game) {
-    //   var params = {
-    //     game_id: game.id,
-    //     user_id: localStorage.getItem("user_id"),
-    //   }
-    //   axios.post("api/game_ownerships/", params).then(response => {
-    //     console.log("Game added to collection"), response.data;
-    //   })
-    // }
   },
 };
 </script>
