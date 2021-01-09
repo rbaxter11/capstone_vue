@@ -1,9 +1,9 @@
 <template>
   <div class="home">
-    <ul>
+    <!-- <ul>
       <li class="text-danger" v-for="error in errors" :key="error.id">{{ error }}</li>
-    </ul>
-        <div
+    </ul> -->
+    <div
       id="rev_slider_1078_1_wrapper"
       class="rev_slider_wrapper fullwidthbanner-container"
       data-alias="classic4export"
@@ -327,6 +327,8 @@
         <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
       </div>
     </div>
+    <br>
+    <br>
     <div class="title-heading1 mb40">
       <h3>How it Works</h3>
     </div>
