@@ -1,6 +1,26 @@
 <template>
   <div class="about">
-    <h3>This is a show page about </h3>
+    <div class="row pb50 align-item-center">
+      <div class="col-sm-6 mb40">
+        <h2>{{ game.name }}</h2>
+        <p class="lead">Number of players: {{ game.num_of_players }}</p>
+        <p>Duration: {{ game.duration }}</p>
+        <p>Difficulty (Minimum Age): {{ game.difficulty }}</p>
+        <a href="#" class="btn btn-primary">Add to my Collection</a>
+      </div>
+      <div class="col-sm-6 mb40">
+        <div class="carousel-image owl-carousel owl-theme carousel-dark">
+          <div class="item">
+            <img src="images/contained1.jpg" alt="" class="img-fluid" />
+          </div>
+          <div class="item">
+            <img src="images/contained2.jpg" alt="" class="img-fluid" />
+          </div>
+        </div>
+        <!-- /Carousel -->
+      </div>
+    </div>
+    <h3>This is a show page about</h3>
     <h1>{{ game.name }}</h1>
     <img v-bind:src="`${game.boxart}`" alt="" />
     <p>Number of players: {{ game.num_of_players }}</p>
@@ -32,5 +52,5 @@ export default {
       });
     },
   },
-}
+};
 </script>
