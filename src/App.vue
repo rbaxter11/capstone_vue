@@ -16,7 +16,7 @@
         <a class="navbar-brand" href="/">
           <!-- <img class="logo logo-dark" src="images/logo.png" alt="" />
           <img class="logo logo-light hidden-md-down" src="images/logo-light.png" alt="" /> -->
-          Board Game App
+          <strong>overBoard</strong>
         </a>
         <div id="navbarNavDropdown" class="navbar-collapse collapse">
           <ul class="navbar-nav">
@@ -40,6 +40,16 @@
                 Game Database
               </a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/login">
+                Login
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/logout">
+                Sign Out
+              </a>
+            </li>
           </ul>
         </div>
         <div class=" navbar-right-elements">
@@ -61,7 +71,7 @@
         <div class="row">
           <div class="col-lg-6  ml-auto mr-auto text-center">
             <ul class="social-icons list-inline">
-              <p>Board Up! is made by Ryan Baxter</p>
+              <p>overBoard is made by Ryan Baxter</p>
               <li class="list-inline-item">
                 <a href="https://www.linkedin.com/in/ryanbaxter/">
                   <i class="fa fa-linkedin"></i>

@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Assan 3</title>    
+        <!-- Plugins CSS -->
+        <link href="css/plugins/plugins.css" rel="stylesheet">
+        <!-- load css for cubeportfolio -->
+        <link rel="stylesheet" type="text/css" href="cubeportfolio/css/cubeportfolio.min.css">
+        <link href='smart-form/smart-formsUI.css' rel='stylesheet'/>
+        <link href="css/shop-style.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="preloader">
+            <div id="preloader-inner"></div>
+        </div><!--/preloader-->
+
+        <!--top bar-->
+        <div class='top-bar clearfix light'>
+            <div class='container'>
+                <div class='float-sm-right'>
+                    <ul class='list-inline mb0'>
+                        <li class='list-inline-item'>
+                            <a href="#" class="social-icon-sm si-gray si-gray-round si-facebook">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+
+                        <li class='list-inline-item'>
+                            <a href="#" class="social-icon-sm si-gray si-gray-round si-twitter">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class='list-inline-item'>
+                            <a href="#" class="social-icon-sm si-gray si-gray-round si-instagram">
+                                <i class="fa fa-instagram"></i>
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class='list-inline-item'>
+                            <a href="#" class="social-icon-sm si-gray si-gray-round si-g-plus">
+                                <i class="fa fa-google-plus"></i>
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class='float-sm-left'>
+                    <ul class='list-inline mb0 links'>
+                        <li class='list-inline-item'><a href='#'>Login</a></li>
+                        <li class='list-inline-item'><a href='#'>Register</a></li>
+                        <li class='list-inline-item dropdown'><a href='#' class="dropdown-toggle" data-toggle="dropdown">Lang</a>
+                            <ul class="dropdown-menu lang-dropdown">
+                                <li><a href='#' class="dropdown-item">English</a></li>
+                                <li><a href='#' class="dropdown-item">Spanish</a></li>
+                                <li><a href='#' class="dropdown-item">French</a></li>
+                                <li><a href='#' class="dropdown-item">Arban</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--end top bar-->
+        <!-- Pushy Menu -->
+        <aside class="pushy pushy-right">
+            <div class="cart-content">
+                <div class="clearfix">
+                    <a href="javascript:void(0)" class="pushy-link text-white-gray">Close</a>
+                </div>
+                <ul class="list-unstyled">
+                    <li class="clearfix">
+                        <a href="#" class="float-left">
+                            <img src="images/shop/p1.jpg" class="img-fluid" alt="" width="60">
+                        </a>
+                        <div class="oHidden">
+                            <span class="close"><i class="ti-close"></i></span>
+                            <h4><a href="#">Men's Special Watch</a></h4>
+                            <p class="text-white-gray"><strong>$299.00</strong> x 1</p>
+                        </div>
+                    </li><!--/cart item-->
+                    <li class="clearfix">
+                        <a href="#" class="float-left">
+                            <img src="images/shop/p2.jpg" class="img-fluid" alt="" width="60">
+                        </a>
+                        <div class="oHidden">
+                            <span class="close"><i class="ti-close"></i></span>
+                            <h4><a href="#">Men's tour beg</a></h4>
+                            <p class="text-white-gray"><strong>$99.00</strong> x 1</p>
+                        </div>
+                    </li><!--/cart item-->
+                    <li class="clearfix">
+                        <a href="#" class="float-left">
+                            <img src="images/shop/p3.jpg" class="img-fluid" alt="" width="60">
+                        </a>
+                        <div class="oHidden">
+                            <span class="close"><i class="ti-close"></i></span>
+                            <h4><a href="#">Women's T-shirts</a></h4>
+                            <p class="text-white-gray"><strong>$199.00</strong> x 1</p>
+                        </div>
+                    </li><!--/cart item-->
+                    <li class="clearfix">
+
+                        <div class="float-right">
+                            <a href="#" class="btn btn-primary">Checkout</a>
+                        </div>
+                        <h4  class="text-white">
+                            <small>Subtotal - </small> $49.99
+                        </h4>
+                    </li><!--/cart item-->
+                </ul>
+            </div>
+        </aside>
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+            <div class="search-inline">
+                <form>
+                    <input type="text" class="form-control" placeholder="Type and hit enter...">
+                    <button type="submit"><i class="ti-search"></i></button>
+                    <a href="javascript:void(0)" class="search-close"><i class="ti-close"></i></a>
+                </form>
+            </div><!--/search form-->
+            <div class="container">
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt=""></a>
+                <div  id="navbarNavDropdown" class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Home</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="index.html" class="dropdown-item">Home 1 - Slider</a></li>
+                                <li><a href="index-02.html" class="dropdown-item">Home 2 - Particle</a></li>
+                                <li><a href="index-03.html" class="dropdown-item">Home 3 - Carousel</a></li>
+                                <li><a href="index-04.html" class="dropdown-item">Home 4 - Text animation</a></li>
+                                <li><a href="index-05.html" class="dropdown-item">Home 5 - Youtube hero</a></li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Demo Shop</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="shop-home.html" class="dropdown-item">Shop home</a></li>
+                                        <li><a href="shop-full.html" class="dropdown-item">Shop Full width</a></li>
+                                        <li><a href="shop-sidebar.html" class="dropdown-item">Shop Sidebar</a></li>
+
+                                        <li><a href="shop-item.html" class="dropdown-item">Shop item</a></li>
+                                        <li><a href="shop-cart.html" class="dropdown-item">Shop cart</a></li>
+                                        <li><a href="shop-checkout.html" class="dropdown-item">Shop checkout</a></li>
+                                    </ul>
+                                </li> 
+
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Multi Level 1</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#" class="dropdown-item">Multi Level 2</a></li>
+                                        <li><a href="#" class="dropdown-item">Multi Level 2</a></li>
+                                        <li><a href="#" class="dropdown-item">Multi Level 2</a></li>
+                                        <li class="dropdown-submenu"><a tabindex="-1" href="#" class="dropdown-item">Multi Level 2</a>
+                                            <ul class="dropdown-menu">
+                                                <li> <a href="#" class="dropdown-item">Multi Level 3</a></li>
+                                                <li><a href="#" class="dropdown-item">Multi Level 3</a></li>
+                                                <li><a href="#" class="dropdown-item">Multi Level 3</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown dropdown-full-width">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                                Pages 
+                            </a>
+                            <ul class="dropdown-menu dropdown-mega-fw">
+                                <li class="container">
+                                    <div class="mega-menu-content">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="page-about.html"> About Modern</a></li>
+                                                    <li><a href="page-about-alt.html"> About Simple</a></li>
+                                                    <li><a href="page-team.html"> Our Team</a></li>
+                                                    <li><a href="page-services.html"> Services</a></li>
+                                                    <li><a href="page-service-alt.html"> Services 2</a></li> 
+                                                    <li><a href="page-contact-basic.html"> Contact basic </a></li> 
+                                                    <li><a href="page-contact-advanced.html"> Contact Advanced</a></li> 
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3">
+
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="page-faq.html"> Faqs</a></li>
+                                                    <li><a href="page-pricing.html"> Pricing Plans</a></li>
+                                                    <li><a href="page-sec-navbar.html"> Secondary navbar</a></li>
+                                                    <li><a href="page-clients.html"> Our Clients</a></li>
+                                                    <li><a href="page-career.html"> Career</a></li>
+                                                    <li><a href="page-office.html"> Our Office</a></li>
+                                                    <li><a href="page-custom-header.html"> Custom Header</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3">
+
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="page-full-width.html"> Full width</a></li>
+                                                    <li><a href="page-left-sidebar.html"> Left Sidebar</a></li>
+                                                    <li><a href="page-right-sidebar.html"> Right sidebar</a></li>
+                                                    <li><a href="page-both-sidebar.html"> Both Sidebar</a></li>
+                                                    <li><a href="page-coming-soon.html"> Coming soon</a></li>
+                                                    <li><a href="page-coming-soon2.html"> Coming Soon alt</a></li>
+                                                    <li><a href="page-blank.html"> Blank page</a></li>
+                                                </ul>
+
+                                            </div>
+                                            <div class="col-lg-3">
+
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="page-login.html"> Login</a></li>
+                                                    <li><a href="page-register.html"> Register</a></li>
+                                                    <li><a href="page-fpassword.html">Forget password</a></li>
+                                                    <li><a href="page-success.html"> Success page</a></li>
+                                                    <li><a href="page-maintenence.html"> Maintenence mode</a></li>
+                                                    <li><a href="page-404-video.html"> 404 video</a></li>
+                                                    <li><a href="page-404-particle.html"> 404 Particle</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown dropdown-full-width">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                                Portfolio  
+                            </a>
+                            <ul class="dropdown-menu dropdown-mega-fw">
+                                <li class="container">
+                                    <div class="mega-menu-content">
+                                        <p class="text-muted">Powered by cube portfolio</p>
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Grid overlay</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="folio-grid-2.html"> 2 Columns</a></li>
+                                                    <li><a href="folio-grid-3.html"> 3 Columns</a></li>
+                                                    <li><a href="folio-grid-4.html"> 4 Columns</a></li>
+                                                    <li><a href="folio-grid-5.html"> 5 Columns</a></li>
+                                                    <li><a href="folio-grid-6.html"> 6 Columns</a></li>
+                                                    <li><hr></li>
+                                                    <li><a href="folio-ajax-load.html">Ajax - Load More</a></li>
+
+                                                    <li><a href="folio-ajax-modal.html"> Ajax - Modal</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Grid Titles</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="folio-grid-title-2.html"> 2 Columns</a></li>
+                                                    <li><a href="folio-grid-title-3.html"> 3 Columns</a></li>
+                                                    <li><a href="folio-grid-title-4.html"> 4 Columns</a></li>
+                                                    <li><a href="folio-grid-title-5.html"> 5 Columns</a></li>
+                                                    <li><a href="folio-grid-title-6.html"> 6 Columns</a></li>
+                                                    <li><a href="folio-grid-title-nm-2.html"> No Margin 2 columns</a></li>
+                                                    <li><a href="folio-grid-title-nm-3.html"> No Margin 3 columns</a></li>
+                                                    <li><a href="folio-grid-title-nm-4.html"> No Margin 4 columns</a></li>
+                                                    <li><a href="folio-grid-title-nm-5.html"> No Margin 5 columns</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Grid Full width</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="folio-grid-fw-2.html"> 2 Columns</a></li>
+                                                    <li><a href="folio-grid-fw-3.html"> 3 Columns</a></li>
+                                                    <li><a href="folio-grid-fw-4.html"> 4 Columns</a></li>
+                                                    <li><a href="folio-grid-fw-5.html"> 5 Columns</a></li>
+                                                    <li><a href="folio-grid-fw-6.html"> 6 Columns</a></li>
+                                                    <li><a href="folio-grid-fw-nm-2.html"> No Margin 2 columns</a></li>
+                                                    <li><a href="folio-grid-fw-nm-3.html"> No Margin 3 columns</a></li>
+                                                    <li><a href="folio-grid-fw-nm-4.html"> No Margin 4 columns</a></li>
+                                                    <li><a href="folio-grid-fw-nm-5.html"> No Margin 5 columns</a></li>
+                                                </ul>
+
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Grid Masonry</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="folio-masonry-2.html"> 2 Columns</a></li>
+                                                    <li><a href="folio-masonry-3.html"> 3 Columns</a></li>
+                                                    <li><a href="folio-masonry-4.html"> 4 Columns</a></li>
+                                                    <li><a href="folio-mosaic-contained.html"> mosaic contained</a></li>
+                                                    <li><a href="folio-mosaic-full.html"> Mosaic Full width</a></li>
+                                                    <li><hr></li>
+                                                    <li><a href="folio-single-gallery.html">Single - Gallery</a></li>
+                                                    <li><a href="folio-single-video.html"> Single - Video</a></li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Blog</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li><a href="blog-contained.html" class="dropdown-item">Contained</a></li>
+                                <li><a href="blog-sidebar-left.html" class="dropdown-item">Left Sidebar</a></li>
+                                <li><a href="blog-sidebar-right.html" class="dropdown-item">Right Sidebar</a></li>
+                                <li><a href="blog-masonry.html" class="dropdown-item">Masonry</a></li>
+                                <li><a href="blog-masonry-sidebar.html" class="dropdown-item">Masonry sidebar</a></li>
+                                <li><a href="blog-lg-post-grid.html" class="dropdown-item">Large post grid</a></li>
+                                <li><a href="blog-timeline.html" class="dropdown-item">Timeline</a></li> 
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Single Post</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="post-image.html" class="dropdown-item">Image</a></li>
+                                        <li><a href="post-gallery.html" class="dropdown-item">Gallery</a></li>
+                                        <li><a href="post-video.html" class="dropdown-item">Video</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Features</a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Headers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="header-light-top-bar.html" class="dropdown-item">Light top bar</a></li>
+                                        <li><a href="header-dark-top-bar.html" class="dropdown-item">Dark top bar</a></li>
+                                        <li><a href="header-transparent-dark.html" class="dropdown-item">Transparent Dark</a></li>
+                                        <li><a href="header-transparent-light.html" class="dropdown-item">Transparent Light</a></li>
+                                        <li><a href="header-center-logo.html" class="dropdown-item">Center logo</a></li>
+                                        <li><a href="header-center-navbar.html" class="dropdown-item">Center Navbar</a></li>
+                                        <li><a href="header-sticky-dark.html" class="dropdown-item">Sticky dark</a></li>
+                                        <li><a href="header-sticky-light.html" class="dropdown-item">Sticky light</a></li>
+                                        <li><a href="header-after-hero.html" class="dropdown-item">After hero</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Footers</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="footer-1.html" class="dropdown-item">Footer 1</a></li>
+                                        <li><a href="footer-2.html" class="dropdown-item">Footer 2</a></li>
+                                        <li><a href="footer-3.html" class="dropdown-item">Footer 3</a></li>
+                                        <li><a href="footer-4.html" class="dropdown-item">Footer 4</a></li>
+                                        <li><a href="footer-5.html" class="dropdown-item">Footer 5</a></li>
+                                        <li><a href="footer-6.html" class="dropdown-item">Footer 6</a></li>
+                                        <li><a href="footer-7.html" class="dropdown-item">Footer 7</a></li>
+                                    </ul>
+                                </li>
+                                <li class=" dropdown-submenu dropdown">
+                                    <a tabindex="-1" href="#" class="dropdown-item">Slider & Heros</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="hero-particle.html" class="dropdown-item">Hero Particle</a></li>
+                                        <li><a href="hero-parallax.html" class="dropdown-item">Hero Parallax</a></li>
+                                        <li><a href="hero-youtube.html" class="dropdown-item">Hero youtube</a></li>
+                                        <li><a href="hero-vimeo.html" class="dropdown-item">Hero Vimeo</a></li>
+                                        <li><a href="hero-agency.html" class="dropdown-item">Hero Agency</a></li>
+                                        <li><a href="slider-particle.html" class="dropdown-item">Slider Particle</a></li>                       
+                                        <li><a href="slider-small.html" class="dropdown-item">Slider Small</a></li>
+                                        <li><a href="slider-text.html" class="dropdown-item">Slider Text</a></li>
+                                        <li><a href="slider-carousel.html" class="dropdown-item">Slider Carousel</a></li>
+                                        <li><a href="slider-kenburns.html" class="dropdown-item">Slider Ken burns</a></li>
+                                        <li><a href="slider-image.html" class="dropdown-item">Slider Image</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown dropdown-full-width">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                Elements
+                            </a>
+                            <ul class="dropdown-menu dropdown-mega-fw">
+                                <li class="container">
+                                    <div class="mega-menu-content">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Shortcode 1</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="shortcode-buttons.html"><i class="ti-settings"></i> Buttons</a></li>
+                                                    <li><a href="shortcode-animations.html"><i class="ti-wand"></i> Animations</a></li>
+                                                    <li><a href="shortcode-social-buttons.html"><i class="ti-facebook"></i> Social Buttons</a></li>
+                                                    <li><a href="shortcode-carousel.html"><i class="ti-slice"></i> Carousel</a></li>
+                                                    <li><a href="shortcode-clients.html"><i class="ti-apple"></i> Clients</a></li>
+                                                    <li><a href="shortcode-columns.html"><i class="ti-align-center"></i> Columns</a></li>
+                                                    <li><a href="shortcode-alerts.html"><i class="ti-close"></i> Alerts</a></li>
+                                                    <li><a href="shortcode-page-titles.html"><i class="ti-heart"></i> Page Titles</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Shortcode 2</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="shortcode-icon-box.html"><i class="ti-light-bulb"></i> Icon Boxes</a></li>
+                                                    <li><a href="shortcode-parallax.html"><i class="ti-image"></i> Parallax</a></li>
+                                                    <li><a href="shortcode-flex-box.html"><i class="ti-star"></i> flex boxes</a></li>
+                                                    <li><a href="shortcode-promo-box.html"><i class="ti-tag"></i> Promo Boxes</a></li>
+                                                    <li><a href="shortcode-lightbox.html"><i class="ti-plus"></i> Lightbox</a></li>
+                                                    <li><a href="shortcode-testimonials.html"><i class="ti-comments"></i> Testimonials</a></li>
+                                                    <li><a href="shortcode-counter.html"><i class="ti-calendar"></i> Counter & Countdowns</a></li>
+                                                    <li><a href="shortcode-icons.html"><i class="ti-flag"></i> icons</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Shortcode 3</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="shortcode-tabs.html"><i class="fa fa-cog"></i> Tabs</a></li>
+                                                    <li><a href="shortcode-accordions.html"><i class="fa fa-magic"></i> Accordions</a></li>
+                                                    <li><a href="shortcode-progressbars.html"><i class="ti-align-left"></i> Progress bars</a></li>
+                                                    <li><a href="shortcode-typography.html"><i class="ti-text"></i> Typography</a></li>
+                                                    <li><a href="shortcode-card.html"><i class="ti-layout-tab-window"></i> Cards</a></li>
+                                                    <li><a href="shortcode-tables.html"><i class="ti-clipboard"></i> Tables</a></li>
+                                                    <li><a href="shortcode-sticky-elements.html"><i class="fa fa-arrow-circle-up"></i> Sticky Elements</a></li>
+                                                    <li><a href="shortcode-pricing-tables.html"><i class="ti-credit-card"></i> Pricing Tables</a></li>
+
+                                                </ul>
+
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <h4 class="mega-title">Shortcode 4</h4>
+                                                <ul class="mega-inner-nav list-unstyled">
+                                                    <li><a href="shortcode-charts.html"><i class="ti-bar-chart"></i> Charts</a></li>
+                                                    <li><a href="shortcode-responsive-videos.html"><i class="ti-control-play"></i> Responsive Videos</a></li>
+                                                    <li><a href="shortcode-gmap.html"><i class="ti-map"></i> Google Map</a></li>
+
+                                                    <li><a href="shortcode-modals.html"><i class="ti-close"></i> Modals</a></li>
+                                                    <li><a href="shortcode-blockquotes.html"><i class="ti-quote-right"></i> Blockquotes</a></li>
+                                                    <li><a href="shortcode-paginations.html"><i class="ti-arrow-circle-right"></i> Paginations</a></li>
+                                                    <li><a href="shortcode-form-elments.html"><i class="ti-share"></i> Form Elements</a></li><li><a href="shortcode-notify.html"><i class="ti-alert"></i>Notification-bar</a></li><li><a href="shortcode-image-text-cards.html"><i class="ti-image"></i>Image+Text cards</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                    </ul>        
+                </div>
+                <div class=" navbar-right-elements">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="javascript:void(0)" class="search-open"><i class="ti-search"></i></a></li>
+                        <li class="list-inline-item"><a href="javascript:void(0)" class=" menu-btn"><i class="ti-shopping-cart"></i> <span class="badge badge-default">3</span></a></li>
+                    </ul>
+                </div><!--right nav icons-->
+
+            </div>
+        </nav><!--end nav-->
+
+        <div class="container pt90 pb60">
+            <div class='row align-items-center'>
+                <div class='col-md-7'>
+                    <div id="js-grid-slider-thumbnail" class="cbp">
+                        <div class="cbp-item">
+                            <div class="cbp-caption">
+                                <div class="cbp-caption-defaultWrap">
+                                    <img src="images/shop/product1.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item">
+                            <div class="cbp-caption">
+                                <div class="cbp-caption-defaultWrap">
+                                    <img src="images/shop/product2.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item">
+                            <div class="cbp-caption">
+                                <div class="cbp-caption-defaultWrap">
+                                    <img src="images/shop/product3.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cbp-item">
+                            <div class="cbp-caption">
+                                <div class="cbp-caption-defaultWrap">
+                                    <img src="images/shop/product4.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="js-pagination-slider">
+                        <div class="cbp-pagination-item cbp-pagination-active">
+                            <img src="images/shop/product1.jpg" alt="">
+                        </div>
+                        <div class="cbp-pagination-item">
+                            <img src="images/shop/product2.jpg" alt="">
+                        </div>
+                        <div class="cbp-pagination-item">
+                            <img src="images/shop/product3.jpg" alt="">
+                        </div>
+                        <div class="cbp-pagination-item">
+                            <img src="images/shop/product4.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class='col-md-5'>
+                    <h2>Women's Hand Bag</h2>
+                    <div class='clearfix mb30'>
+                        <span class='float-right'>
+                            <i class='fa fa-star text-warning'></i>
+                            <i class='fa fa-star text-warning'></i>
+                            <i class='fa fa-star text-warning'></i>
+                            <i class='fa fa-star text-warning'></i>
+                            <i class='fa fa-star-half-full text-warning'></i>
+                            (12 Reviews)
+                        </span>
+                        <h4 class='text-info'>$39.00</h4>
+                    </div>
+                    <p>
+                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                    </p>
+                    <form method="post" class="pt20">
+                        <h4><small>Quantity</small></h4>
+                        <div class="quantity">                            
+                            <input type="button" class="minus" value="-">
+                            <input type="text" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                            <input type="button" class="plus" value="+">
+                        </div>
+                        <button type="button" class="btn btn-primary btn-icon">Add to cart</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row pt70">
+                <div class="col-md-10 ml-auto mr-auto">
+                    <div>
+
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs tabs-default justify-content-center mb30" role="tablist">
+                            <li class="nav-item" role="presentation"><a class="active nav-link" href="#t3" aria-controls="#t3" role="tab" data-toggle="tab"> Description</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#t4" aria-controls="#t4" role="tab" data-toggle="tab"> Additional Information</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="#t5" aria-controls="#t5" role="tab" data-toggle="tab"> Feedback <sup>2</sup></a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active show fade" id="t3">
+                                Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. 
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="t4">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr><th>
+                                                Size:
+                                            </th>
+                                            <td>
+                                                Unique
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Colors
+                                            </th>
+                                            <td>
+                                                Sky Blue, Green, Red
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                Material
+                                            </th>
+                                            <td>
+                                                100% Leather
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table> 
+                            </div>    
+                            <div role="tabpanel" class="tab-pane show fade" id="t5">
+                                <div class="media mb40">
+                                    <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                    <div class="media-body">
+                                        <h5 class="mt-0 clearfix">
+                                            <span class="float-right">
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star-half-full  text-warning"></i>
+                                            </span>
+                                            Jane Doe</h5>
+                                        Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </div>
+                                </div>
+                                <div class="media mb40">
+                                    <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                                    <div class="media-body">
+                                        <h5 class="mt-0 clearfix">
+                                            <span class="float-right">
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <i class="fa fa-star-half-full  text-warning"></i>
+                                            </span>
+                                            Jane Doe</h5>
+                                        Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                                    </div>
+                                </div><!--/review-->
+                                <hr class="mb40">
+                                <div class="title-heading1">
+                                    <h3>Add Feedback</h3>
+                                </div>
+                                    <div class="smart-forms feedback-form smart-container wrap-1">
+
+                                        <form method="post" action="/" id="feedback">
+                                            <div class="form-body">
+
+                                                <div class="frm-row">
+
+                                                    <div class="section colm colm6">
+                                                        <label class="field prepend-icon">
+                                                            <input type="text" name="firstname" id="firstname" class="gui-input" placeholder="First name...">
+                                                            <span class="field-icon"><i class="fa fa-user"></i></span>  
+                                                        </label>
+                                                    </div><!-- end section -->
+
+                                                    <div class="section colm colm6">
+                                                        <label class="field prepend-icon">
+                                                            <input type="text" name="lastname" id="lastname" class="gui-input" placeholder="Last name...">
+                                                            <span class="field-icon"><i class="fa fa-user"></i></span>  
+                                                        </label>
+                                                    </div><!-- end section --> 
+
+                                                </div><!-- end frm-row section -->
+
+                                                <div class="section">
+                                                    <label class="field prepend-icon">
+                                                        <input type="text" name="company" id="company" class="gui-input" placeholder="Company">
+                                                        <span class="field-icon"><i class="fa fa-building-o"></i></span>  
+                                                    </label>
+                                                </div><!-- end section -->                    
+
+                                                <div class="section">
+                                                    <label class="field prepend-icon">
+                                                        <input type="email" name="email" id="email" class="gui-input" placeholder="Email address">
+                                                        <span class="field-icon"><i class="fa fa-envelope"></i></span>  
+                                                    </label>
+                                                </div><!-- end section -->                    
+
+                                                <div class="section">
+                                                    <label class="field prepend-icon">
+                                                        <input type="tel" name="mobile" id="mobile" class="gui-input" placeholder="Moble contact">
+                                                        <span class="field-icon"><i class="fa fa-phone-square"></i></span>  
+                                                    </label>
+                                                </div><!-- end section --> 
+                                                <div class="section">
+                                                    <label class="field prepend-icon">
+                                                        <textarea class="gui-textarea" id="comment" name="comment" placeholder="Feedback message"></textarea>
+                                                        <span class="field-icon"><i class="fa fa-comments"></i></span>
+                                                        <span class="input-hint"> <strong>Hint:</strong> Please enter between 80 - 300 characters.</span>   
+                                                    </label>
+                                                </div><!-- end section -->
+
+                                                <div class="spacer spacer-b20"></div> 
+
+                                                <div class="section">
+
+                                                    <span class="rating block">
+
+                                                        <span class="lbl-text">Rate this product</span>
+
+                                                        <input class="rating-input" id="five-stars" type="radio"  name="product-rate">
+                                                        <label class="rating-star" for="five-stars"><i class="fa fa-star"></i></label>
+
+                                                        <input class="rating-input" id="four-stars" type="radio"  name="product-rate">
+                                                        <label class="rating-star" for="four-stars"><i class="fa fa-star"></i></label>
+
+                                                        <input class="rating-input" id="three-stars" type="radio"  name="product-rate" checked>
+                                                        <label class="rating-star" for="three-stars"><i class="fa fa-star"></i></label>
+
+                                                        <input class="rating-input" id="two-stars" type="radio"  name="product-rate">
+                                                        <label class="rating-star" for="two-stars"><i class="fa fa-star"></i></label>
+
+                                                        <input class="rating-input" id="one-star" type="radio"  name="product-rate">
+                                                        <label class="rating-star" for="one-star"><i class="fa fa-star"></i></label>
+
+                                                    </span>
+                        
+
+                                                </div><!-- end  section -->
+
+
+                                            </div><!-- end .form-body section -->
+                                          
+                                              <div class='pt20 pb20'>
+                                                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                                            
+                                              </div>
+                                        </form>
+
+                                    </div><!-- end .smart-forms section -->
+                                
+
+                                <div></div><!-- end section -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-faded related-items pt90 pb50">
+            <div class="container">
+                <div class="title-heading1">
+                    <h3>You may also like</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 mb40">
+                        <a href="#" class="simple-hover">
+                            <img src="images/shop/p1.jpg" alt="" class="img-fluid">
+                        </a>
+                        <div class="clearfix product-meta">
+
+                            <p class="lead mb0"><a href="#">Women Bags</a></p>
+                            <h4 class=""> $9.99</h4>
+                        </div>
+                    </div><!--/col-->
+                    <div class="col-md-6 col-lg-3 mb40">
+                        <a href="#" class="simple-hover">
+                            <img src="images/shop/p2.jpg" alt="" class="img-fluid">
+                        </a>
+                        <div class="clearfix product-meta">
+
+                            <p class="lead mb0"><a href="#">Women Tops</a></p>
+                            <h4 class=""> $25.00</h4>
+                        </div>
+                    </div><!--/col-->
+                    <div class="col-md-6 col-lg-3 mb40">
+                        <a href="#" class="simple-hover">
+                            <img src="images/shop/p3.jpg" alt="" class="img-fluid">
+                        </a>
+                        <div class="clearfix product-meta">
+
+                            <p class="lead mb0"><a href="#">Winter rounded t-shirts</a></p>
+                            <h4 class=""><del>29.00</del> $9.99</h4>
+                        </div>
+                    </div><!--/col-->
+                    <div class="col-md-6 col-lg-3 mb40">
+                        <a href="#" class="simple-hover">
+                            <img src="images/shop/p4.jpg" alt="" class="img-fluid">
+                        </a>
+                        <div class="clearfix product-meta">
+
+                            <p class="lead mb0"><a href="#">Women sandals</a></p>
+                            <h4 class=""> $21.00</h4>
+                        </div>
+                    </div><!--/col-->
+                </div>
+            </div>
+        </div>
+        <footer class="footer footer-standard pt50 pb10">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-2 col-md-2 mb40">
+
+                        <ul class="list-unstyled footer-list-item">
+                            <li>
+                                <a href="#">
+                                    Jeans
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Wrangler
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Peter England
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    T-shirts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Party Wear
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Shoes
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-2 mb40">
+
+                        <ul class="list-unstyled footer-list-item">
+                            <li>
+                                <a href="#">
+                                    Offer & Discounts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Skirts
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Kids Store
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Home Decor
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Sunglasses
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Begs
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-2 mb40">
+
+                        <ul class="list-unstyled footer-list-item">
+                            <li>
+                                <a href="#">
+                                    About
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    News
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    FAQS
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Contact
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Term &amp; conditions
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    Privacy &amp; policy
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-md-6 mb40">
+                        <h3>Subscribe to our newsletter</h3>
+                        <form id="widget-subscribe-form" action="index.html" role="form" method="post" class="mb0">
+                            <div class="input-group input-group-lg">
+
+                                <input type="email" name="widget-subscribe-form-email" class="form-control required" placeholder="Enter your Email">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </span>
+                            </div>
+                        </form>
+                        <div class="row pt30">
+                            <div class="col-sm-6">
+                                <p class="contact-lead">
+                                    <small>Call us</small>
+                                    <br>+01 123-493-2949
+                                </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <p class="contact-lead">
+                                    <small>Mail us</small>
+                                    <br>support@domain.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="footer-bottomAlt">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="clearfix">
+                            <a href="#" class="social-icon-sm si-dark si-facebook si-dark-round">
+                                <i class="fa fa-facebook"></i>
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="social-icon-sm si-dark si-twitter si-dark-round">
+                                <i class="fa fa-twitter"></i>
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon-sm si-dark si-g-plus si-dark-round">
+                                <i class="fa fa-google-plus"></i>
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                            <a href="#" class="social-icon-sm si-dark si-skype si-dark-round">
+                                <i class="fa fa-skype"></i>
+                                <i class="fa fa-skype"></i>
+                            </a>
+                            <a href="#" class="social-icon-sm si-dark si-linkedin si-dark-round">
+                                <i class="fa fa-linkedin"></i>
+                                <i class="fa fa-linkedin"></i>
+                            </a>  
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <span>© Copyright 2017. All Right Reserved</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--back to top-->
+        <a href="#" class="back-to-top hidden-xs-down" id="back-to-top"><i class="ti-angle-up"></i></a>
+        <!-- jQuery first, then Tether, then Bootstrap JS. -->
+        <script src="js/plugins/plugins.js"></script> 
+        <script src="js/assan.custom.js"></script> 
+        <!-- load cubeportfolio -->
+        <script type="text/javascript" src="cubeportfolio/js/jquery.cubeportfolio.min.js"></script>
+        <!-- init cubeportfolio -->
+        <script type="text/javascript" src="js/cube-thumb-slider.js"></script>
+    </body>
+</html>

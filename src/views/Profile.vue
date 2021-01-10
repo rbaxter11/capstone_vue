@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <br>
+    <br>
     <h1>{{ message }}</h1>
     <div v-if="currentUserInvites.accepted === 'false'">
     <h3>Invites awaiting approval:</h3>

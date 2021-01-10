@@ -43,7 +43,7 @@
           >
             <!-- MAIN IMAGE -->
             <img
-              src="images/jumbotron.jpg"
+              src="images/jumbo3.jpg"
               alt=""
               data-bgposition="center center"
               data-bgfit="cover"
@@ -76,7 +76,7 @@
               data-paddingleft="[0,0,0,0]"
               style="z-index: 7; white-space: nowrap;text-transform:left;"
             >
-              show off your collection
+              a place to show off your collection!
             </div>
             <!-- LAYER NR. 1 -->
             <div
@@ -101,7 +101,7 @@
               data-paddingleft="[0,0,0,0]"
               style="z-index: 6; text-align:left; max-width:1170px; white-space: normal;"
             >
-              Assert your Cardboard Dominance
+              Welcome to overBoard
             </div>
           </li>
           <!-- SLIDE  -->
@@ -327,13 +327,13 @@
         <div class="tp-bannertimer" style="height: 7px; background-color: rgba(255, 255, 255, 0.25);"></div>
       </div>
     </div>
-    <br>
-    <br>
+    <br />
+    <br />
     <div class="title-heading1 mb40">
       <h3>How it Works</h3>
     </div>
     <div class="container no-padding mb70">
-      <div class="row no-margin mb70 align-items-center">
+      <div class="row no-margin mb70 align-items-top">
         <div class="col-md-4 mb30">
           <div class="media pos-relative">
             <div class="d-flex mr-3">
@@ -452,7 +452,47 @@
         </div>
       </div>
     </div>
-
+    <div class="col-lg-3 col-md-6 mb40">
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Create a Meetup
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create a Meetup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <p>
+          Location:
+          <input type="text" v-model="newLocation" />
+        </p>
+        <p>
+          When does it start?:
+          <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
+        </p>
+        <p>
+          Game:
+          <select v-model="newGameId">
+            <option disabled value="">Please select one</option>
+            <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
+          </select>
+        </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Create</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/modal-->
+    </div>
     <dialog id="meetup-create">
       <form method="dialog">
         <h1>Create a meetup</h1>
@@ -462,12 +502,10 @@
         </p>
         <p>
           When does it start?:
-          <!-- <input type="text" v-model="newStartTime" /> -->
           <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
         </p>
         <p>
           Game:
-          <!-- <input type="text" v-model="newGameId" /> -->
           <select v-model="newGameId">
             <option disabled value="">Please select one</option>
             <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
