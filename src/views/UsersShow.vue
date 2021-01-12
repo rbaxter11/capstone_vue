@@ -1,11 +1,26 @@
 <template>
   <div class="about">
-    <h1>{{ user.username }}'s Page</h1>
-      <h5>Number of games in collection: {{ user.quantity }}</h5>
-    <div v-for="game in user.users_games" :key="game.id">
+        <div class="container">
+      <div class="row pb50 align-item-center">
+        <div class="col-sm-6 mb40">
+          <br>
+          <br>
+          <h2>{{ user.username }}'s Page</h2>
+          <p class="lead">About {{ user.username }}:</p>
+          <h6>About me stuff</h6>
+          <p class="lead">Games in Collection:</p>
+          <p>
+          <div v-for="game in user.users_games" :key="game.id">
         <h6>{{ game.name }}</h6>
       </div>
-      <button v-on:click="showInvite()">Invite this user to a Meetup!</button>
+          <a href="#" class="btn btn-primary">Invite this person to a Meetup!</a>
+        </div>
+        <div class="col-sm-6 mb40">
+          <img alt="" class="img-fluid" />
+        </div>
+      </div>
+    </div>
+    
       <dialog id="meetup-details">
         <form method="dialog">
           <div v-for="meetup in meetups" :key="meetup.id">
@@ -56,3 +71,10 @@ export default {
   },
 };
 </script>
+
+<h1>{{ user.username }}'s Page</h1>
+      <h5>Number of games in collection: {{ user.quantity }}</h5>
+    <div v-for="game in user.users_games" :key="game.id">
+        <h6>{{ game.name }}</h6>
+      </div>
+      <button v-on:click="showInvite()">Invite this user to a Meetup!</button>

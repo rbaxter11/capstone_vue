@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable */
 <template>
   <div class="home">
     <!-- <ul>
@@ -348,7 +350,7 @@
             <a
               target="_blank"
               href="https://wrapbootstrap.com/theme/assan-multipurpose-14-themes-admin-WB05F069P/?ref=wb_rakesh"
-              class="btn btn-sm btn-rounded btn-outline-primary"
+              class="btn btn-sm btn-link btn-outline-primary"
             >
               Sign Up
             </a>
@@ -369,7 +371,7 @@
             <a
               target="_blank"
               href="https://wrapbootstrap.com/theme/assan-multipurpose-14-themes-admin-WB05F069P/?ref=wb_rakesh"
-              class="btn btn-sm btn-rounded btn-outline-primary"
+              class="btn btn-sm btn-link btn-outline-primary"
             >
               Go to Game Database
             </a>
@@ -391,7 +393,7 @@
             <a
               target="_blank"
               href="https://wrapbootstrap.com/theme/assan-multipurpose-14-themes-admin-WB05F069P/?ref=wb_rakesh"
-              class="btn btn-sm btn-rounded btn-outline-primary"
+              class="btn btn-sm btn-link btn-outline-primary"
             >
               Browse Members
             </a>
@@ -399,65 +401,16 @@
         </div>
       </div>
     </div>
-    
-      <div class="container">
-        <div class="title-heading1 mb40">
-          <h3>Upcoming Meetups</h3>
-        </div>
-        <div class="card-group">
-          <div
-            class="col-sm-4 mb30 wow fadeInUp"
-            data-wow-delay=".2s"
-            style="width: 50rem;"
-            v-for="meetup in meetups"
-            :key="meetup.id"
-          >
-            <div class="entry-card">
-              <router-link v-bind:to="`/meetups/${meetup.id}`">
-                <a href="" class="entry-thumb">
-                  <img src="images/entry1.jpg" alt="" class="img-fluid" />
-                  <span class="thumb-hover ti-back-right"></span>
-                </a>
-              </router-link>
-              <!--/entry thumb-->
-              <div class="entry-content">
-                <div class="entry-meta mb5">
-                  <span>
-                    {{ meetup.start_time | formatDate }}
-                  </span>
-                </div>
-                <h4 class="entry-title text-capitalize">
-                  <router-link v-bind:to="`/meetups/${meetup.id}`">
-                    <a href="">
-                      {{ meetup.location_name }}
-                    </a>
-                  </router-link>
-                </h4>
-                <p>Game: {{ meetup.game_name }}</p>
-                <p></p>
-                <p>Players:</p>
-                <div v-for="player in meetup.players" :key="player.id">
-                  <p>{{ player.username }}</p>
-                </div>
-                <div class="text-right">
-                  <router-link v-bind:to="`/meetups/${meetup.id}`">
-                    <a href="" class="btn-link btn">Read More</a>
-                  </router-link>
-                </div>
-              </div>
-              <!--/entry content-->
-            </div>
-            <!--/.col-->
-          </div>
-        </div>
-      </div>
-    
-    <div class="col-lg-3 col-md-6 mb40">
+
+    <div class="container">
+      <div class="title-heading1 mb40">
+        <h3>Upcoming Meetups</h3>
+            <div class="col-lg-3 col-md-6 mb40">
       <!-- Button trigger modal -->
       <button
         v-on:click="createMeetupForm()"
         type="button"
-        class="btn btn-primary"
+        class="btn btn-primary btn-block mb5"
         data-toggle="modal"
         data-target="#myModal"
       >
@@ -474,23 +427,123 @@
               </button>
             </div>
             <div class="modal-body">
-            <p>
-          Location:
-          <br>
-          <input type="text" v-model="newLocation" />
-        </p>
-        <p>
-          When does it start?:
-          <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
-        </p>
-        <p>
-          Game:
-          <br>
-          <select v-model="newGameId">
-            <option disabled value="">Please select one</option>
-            <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
-          </select>
-        </p>
+              <p>
+                Location:
+                <br />
+                <input type="text" v-model="newLocation" />
+              </p>
+              <p>
+                When does it start?:
+                <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
+              </p>
+              <p>
+                Game:
+                <br />
+                <select v-model="newGameId">
+                  <option disabled value="">Please select one</option>
+                  <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
+                </select>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button v-on:click.prevent="createMeetup()" type="button" class="btn btn-primary" data-dismiss="modal">
+                Create
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/modal-->
+    </div>
+      </div>
+      <div class="card-group">
+        <div
+          class="col-sm-4 mb30 wow fadeInUp"
+          data-wow-delay=".2s"
+          style="width: 50rem;"
+          v-for="meetup in meetups"
+          :key="meetup.id"
+        >
+          <div class="entry-card">
+            <router-link v-bind:to="`/meetups/${meetup.id}`">
+              <a href="" class="entry-thumb">
+                <img src="images/entry1.jpg" alt="" class="img-fluid" />
+                <span class="thumb-hover ti-back-right"></span>
+              </a>
+            </router-link>
+            <!--/entry thumb-->
+            <div class="entry-content">
+              <div class="entry-meta mb5">
+                <span>
+                  {{ meetup.start_time | formatDate }}
+                </span>
+              </div>
+              <h4 class="entry-title text-capitalize">
+                <router-link v-bind:to="`/meetups/${meetup.id}`">
+                  <a href="">
+                    {{ meetup.location_name }}
+                  </a>
+                </router-link>
+              </h4>
+              <p>Game: {{ meetup.game_name }}</p>
+              <p></p>
+              <p>Players:</p>
+              <div v-for="player in meetup.players" :key="player.id">
+                <p>{{ player.username }}</p>
+              </div>
+              <div class="text-right">
+                <router-link v-bind:to="`/meetups/${meetup.id}`">
+                  <a href="" class="btn-link btn">Read More</a>
+                </router-link>
+              </div>
+            </div>
+            <!--/entry content-->
+          </div>
+          <!--/.col-->
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb40">
+      <!-- Button trigger modal -->
+      <button
+        v-on:click="createMeetupForm()"
+        type="button"
+        class="btn btn-primary btn-block mb5"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Create a Meetup
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create a Meetup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Location:
+                <br />
+                <input type="text" v-model="newLocation" />
+              </p>
+              <p>
+                When does it start?:
+                <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
+              </p>
+              <p>
+                Game:
+                <br />
+                <select v-model="newGameId">
+                  <option disabled value="">Please select one</option>
+                  <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
+                </select>
+              </p>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -532,7 +585,7 @@
         <button>Close</button>
       </form>
     </dialog>
-    <a v-on:click="createMeetupForm()" class="btn btn-sm btn-rounded btn-outline-primary">Create a Meetup</a>
+    <a v-on:click="createMeetupForm()" class="btn btn-sm btn-rounded btn-outline-primary">Create a nkdsndMeetup</a>
   </div>
 </template>
 

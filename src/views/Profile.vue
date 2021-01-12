@@ -12,20 +12,6 @@
           <h3>{{ currentUser.username }}'s Collection</h3>
         </div>
         <a href="#"><h4 class="masonry-title mb0">A little bit about me:</h4></a>
-        <!-- <ul class="post-meta list-inline">
-          <li class="list-inline-item">
-            <i class="fa fa-user-circle-o"></i>
-            <a href="#">John Doe</a>
-          </li>
-          <li class="list-inline-item">
-            <i class="fa fa-calendar-o"></i>
-            <a href="#">29 June 2017</a>
-          </li>
-          <li class="list-inline-item">
-            <i class="fa fa-tags"></i>
-            <a href="#">Bootstrap4</a>
-          </li>
-        </ul> -->
         <p>
           User's about me information
         </p>
@@ -65,30 +51,12 @@
           :key="currentGame.id"
           class="col-md-4 post-masonry mb40"
         >
-          <a href="#"><img v-bind:src="`${currentGame.boxart}`" alt="" class="img-fluid mb20" /></a>
-          <a href="#">
-            <h4 class="masonry-title mb0">{{ currentGame.name }}</h4>
-          </a>
-          <!-- <ul class="post-meta list-inline">
-            <li class="list-inline-item">
-              <i class="fa fa-user-circle-o"></i>
-              <a href="#">{{}}</a>
-            </li>
-            <li class="list-inline-item">
-              <i class="fa fa-calendar-o"></i>
-              <a href="#">29 June 2017</a>
-            </li>
-            <li class="list-inline-item">
-              <i class="fa fa-tags"></i>
-              <a href="#">Bootstrap4</a>
-            </li>
-          </ul>
-          <p>
-            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
-            repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
-            reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus .
-          </p>
-          <a href="#" class="btn btn-outline-secondary">Read More</a> -->
+          <router-link v-bind:to="`/games/${currentGame.id}`">
+            <a href="#"><img v-bind:src="`${currentGame.boxart}`" alt="" class="img-fluid mb20" /></a>
+            <a href="#">
+              <h4 class="masonry-title mb0">{{ currentGame.name }}</h4>
+            </a>
+          </router-link>
         </article>
         <!--article post-->
       </div>

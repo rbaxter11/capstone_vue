@@ -4,30 +4,66 @@
       <div class="container">
         <div class="title-heading1 mb40">
           <h3>Game Database</h3>
+          <br />
+          <h3>
+            Search:
+            <input placeholder="search here!" v-model="nameFilter" />
+          </h3>
         </div>
-        <h2>
-          Search:
-          <input v-model="nameFilter" />
-        </h2>
         <div class="card-columns">
-        <div
-          class="col-sm-4 mb30 wow fadeInUp"
-          style="max-width: 40vh; max-height: 40vh; object-fit: contain; overflow: hidden; padding-bottom: 100%;"
-          v-for="game in filterBy(games, nameFilter, 'name')"
-          :key="game.id"
-        >
-          <img class="card-img-top img-fluid" v-bind:src="`${game.boxart}`" alt="Card image cap" />
-          <div class="card-body">
-            <h4 class="card-title">
-              Card title
-            </h4>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div
+            class="col-sm-4 mb30 wow fadeInUp"
+            style="max-width: 40vh; max-height: relative; object-fit: contain; overflow: hidden;"
+            v-for="game in filterBy(games, nameFilter, 'name')"
+            :key="game.id"
+          >
+            <img
+              v-bind:to="`/games/${game.id}`"
+              class="card-img-top img-fluid"
+              v-bind:src="`${game.boxart}`"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <router-link v-bind:to="`/games/${game.id}`">
+                <h4 class="card-title">
+                  {{ game.name }}
+                </h4>
+              </router-link>
+              <!-- <div class="col-lg-3 col-md-6 mb40"> -->
+                <!-- Small modal -->
+                <button
+                  v-on:click="addGame(game)"
+                  type="button"
+                  class="btn btn-info btn-sm mb5"
+                  data-toggle="modal"
+                  data-target=".bd-example-modal-sm"
+                >
+                  Add to Collection
+                </button>
+
+                <div
+                  class="modal fade bd-example-modal-sm"
+                  tabindex="-1"
+                  role="dialog"
+                  aria-labelledby="mySmallModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Game added to collection!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--modal-->
+              <!-- </div> -->
+            </div>
           </div>
         </div>
-       </div>
       </div>
     </div>
   </div>
@@ -79,7 +115,7 @@ export default {
       <button v-on:click="addGame(game)">I own this game!</button>
     </div> -->
 
- <div class="card-group">
+<div class="card-group">
           <div
             class="col-sm-4 mb30 wow fadeInUp"
             data-wow-delay=".2s"

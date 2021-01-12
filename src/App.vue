@@ -27,7 +27,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/profile">
-                My Profile
+                My Collection
               </a>
             </li>
             <li class="nav-item">
@@ -102,7 +102,7 @@
 
 <style>
 body {
-  background-color: #c6d0cda5;
+  background-image: url("/images/memphis-mini.png");
 }
 </style>
 

@@ -3,16 +3,35 @@
     <br />
     <br />
     <br />
-    <h1>Meetup at: {{ meetups.location_name }}</h1>
-    <h3>Game: {{ meetups.game_name }}</h3>
-    <h3>Start time: {{ meetups.start_time | formatDate }}</h3>
-    <h3>Host: {{ meetups.host_name }}</h3>
-    <h3>Invited players:</h3>
-    <h3>Attending players:</h3>
-    <div v-for="player in meetups.players" :key="player.id">
-      <h6>{{ player.username }}</h6>
+    <div class="container">
+      <div class="row pb50 align-item-center">
+        <div class="col-sm-6 mb40">
+          <h2>Meetup: {{ meetups.location_name }}</h2>
+          <p class="lead">Game: {{ meetups.game_name }}</p>
+          <p class="lead">Start time: {{ meetups.start_time | formatDate }}</p>
+          <p class="lead">Host: {{ meetups.host_name }}</p>
+          <p>
+            Attending Players:
+          </p>
+          <div v-for="player in meetups.players" :key="player.id">
+            <h6>{{ player.username }}</h6>
+          </div>
+          <a v-on:click="showMeetup(meetups)" href="#" class="btn btn-secondary">Edit Meetup</a>
+        </div>
+        <div class="col-sm-6 mb40">
+          <div class="carousel-image owl-carousel owl-theme carousel-dark">
+            <div class="item">
+              <img src="images/contained1.jpg" alt="" class="img-fluid" />
+            </div>
+            <div class="item">
+              <img src="images/contained2.jpg" alt="" class="img-fluid" />
+            </div>
+          </div>
+          <!-- /Carousel -->
+        </div>
+      </div>
     </div>
-    <button v-on:click="showMeetup(meetups)">Edit or Delete!</button>
+    
     <dialog id="meetup-details">
       <form method="dialog">
         <h1>Meetup Details</h1>
@@ -53,7 +72,6 @@
       </div>
       <!--/col-->
     </div>
-    
   </div>
 </template>
 
@@ -144,7 +162,70 @@ export default {
 </script>
 
 <h1>Invite Players to meetup!</h1>
-    <div v-for="user in users" :key="user.id">
+<div v-for="user in users" :key="user.id">
       {{ user.username }}
       <button v-on:click="sendInvite(user)">Invite</button>
+    </div>
+
+<h1>Meetup: {{ meetups.location_name }}</h1>
+<h3>Game: {{ meetups.game_name }}</h3>
+<h3>Start time: {{ meetups.start_time | formatDate }}</h3>
+<h3>Host: {{ meetups.host_name }}</h3>
+<h3>Invited players:</h3>
+<h3>Attending players:</h3>
+<div v-for="player in meetups.players" :key="player.id">
+      <h6>{{ player.username }}</h6>
+    </div>
+<button v-on:click="showMeetup(meetups)">Edit or Delete!</button>
+
+<div class="col-lg-3 col-md-6 mb40">
+      <!-- Button trigger modal -->
+      <button
+        v-on:click="showMeetup(meetups)"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
+        Create a Meetup
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create a Meetup</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Location:
+                <br />
+                <input type="text" v-model="newLocation" />
+              </p>
+              <p>
+                When does it start?:
+                <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
+              </p>
+              <p>
+                Game:
+                <br />
+                <select v-model="newGameId">
+                  <option disabled value="">Please select one</option>
+                  <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
+                </select>
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button v-on:click.prevent="createMeetup()" type="button" class="btn btn-primary" data-dismiss="modal">
+                Create
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--/modal-->
     </div>
