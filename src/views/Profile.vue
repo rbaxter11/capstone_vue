@@ -1,72 +1,102 @@
 <template>
   <div class="home">
-    <br>
-    <br>
-    <h1>{{ message }}</h1>
-    <div v-if="currentUserInvites.accepted === 'false'">
-    <h3>Invites awaiting approval:</h3>
-    </div>
-    <div v-for="invitation in currentUser.invitations" :key="invitation.id">
-      <h6>Invite from {{ invitation.host_name }}</h6>
-      <button v-on:click="showInvite(invitation)">View</button>
-      <dialog id="invite-details">
+    <br />
+    <br />
+    <br />
+    <div class="container mb30">
+      <article class="col-md-12 post-masonry mb40">
+        <a href="#"><img src="images/collection.jpg" alt="" class="img-fluid mb20" /></a>
+
+        <h3></h3>
+        <div class="title-heading1 mb40">
+          <h3>{{ currentUser.username }}'s Collection</h3>
+        </div>
+        <a href="#"><h4 class="masonry-title mb0">A little bit about me:</h4></a>
+        <!-- <ul class="post-meta list-inline">
+          <li class="list-inline-item">
+            <i class="fa fa-user-circle-o"></i>
+            <a href="#">John Doe</a>
+          </li>
+          <li class="list-inline-item">
+            <i class="fa fa-calendar-o"></i>
+            <a href="#">29 June 2017</a>
+          </li>
+          <li class="list-inline-item">
+            <i class="fa fa-tags"></i>
+            <a href="#">Bootstrap4</a>
+          </li>
+        </ul> -->
+        <p>
+          User's about me information
+        </p>
+        <a v-on:click="createGameForm()" class="btn btn-outline-secondary">Add a game to my collection</a>
+        <dialog id="game-details">
           <form method="dialog">
-            <h2>Invitation Details</h2>
-            <h6>Invite from: {{ invitation.host_name }}</h6>
-            <h6>Game to be played: {{ invitation.game_name }}</h6>
-            <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
-            <!-- <div v-for="meetup in invitation.meetups" :key="meetup.id"> -->
-            <!-- <h6>Start Time: {{ invitation.host_name }}</h6> -->
-            <!-- <h6>Location: {{ meetup.location_name }}</h6> -->
-            <!-- </div> -->
+            <h1>Add a Game</h1>
+            <p>
+              Name:
+              <input type="text" v-model="newName" />
+            </p>
+            <p>
+              Number of Players:
+              <input type="text" v-model="newNum" />
+            </p>
+            <p>
+              Duration:
+              <input type="text" v-model="newDuration" />
+            </p>
+            <p>
+              How old should you be to play?:
+              <input type="text" v-model="newDifficulty" />
+            </p>
+            <p>
+              Link some boxart:
+              <input type="text" v-model="newBoxart" />
+            </p>
+            <button v-on:click="createGame()">Create</button>
             <button>Close</button>
           </form>
-      </dialog>
-      <button v-on:click="acceptInvite(invitation)">Accept</button>
-      <button v-on:click="declineInvite(invitation)">Decline</button>
+        </dialog>
+      </article>
+      <!--article post-->
+      <div class="row" id="blog-masonry">
+        <article
+          v-for="currentGame in currentUser.users_games"
+          :key="currentGame.id"
+          class="col-md-4 post-masonry mb40"
+        >
+          <a href="#"><img v-bind:src="`${currentGame.boxart}`" alt="" class="img-fluid mb20" /></a>
+          <a href="#">
+            <h4 class="masonry-title mb0">{{ currentGame.name }}</h4>
+          </a>
+          <!-- <ul class="post-meta list-inline">
+            <li class="list-inline-item">
+              <i class="fa fa-user-circle-o"></i>
+              <a href="#">{{}}</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-calendar-o"></i>
+              <a href="#">29 June 2017</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-tags"></i>
+              <a href="#">Bootstrap4</a>
+            </li>
+          </ul>
+          <p>
+            Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates
+            repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut
+            reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus .
+          </p>
+          <a href="#" class="btn btn-outline-secondary">Read More</a> -->
+        </article>
+        <!--article post-->
+      </div>
     </div>
-    
-    <h2>Username: {{ currentUser.username }}</h2>
-    <h4>Here's your collection:</h4>
-    <div v-for="currentGame in currentUser.users_games" :key="currentGame.id">
-      <router-link v-bind:to="`/games/${currentGame.id}`">
-      <h6>{{ currentGame.name }}</h6>
-      <img v-bind:src="`${currentGame.boxart}`" alt="" />
-      </router-link>
-    </div>
-    <button v-on:click="createGameForm()">Add a game to my collection</button>
-    <dialog id="game-details">
-      <form method="dialog">
-        <h1>Add a Game</h1>
-        <p>
-          Name:
-          <input type="text" v-model="newName" />
-        </p>
-        <p>
-          Number of Players:
-          <input type="text" v-model="newNum" />
-        </p>
-        <p>
-          Duration:
-          <input type="text" v-model="newDuration" />
-        </p>
-        <p>
-          How old should you be to play?:
-          <input type="text" v-model="newDifficulty" />
-        </p>
-        <p>
-          Link some boxart:
-          <input type="text" v-model="newBoxart" />
-        </p>
-        <button v-on:click="createGame()">Create</button>
-        <button>Close</button>
-      </form>
-    </dialog>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import axios from "axios";
@@ -142,3 +172,36 @@ export default {
   },
 };
 </script>
+
+<h1>{{ message }}</h1>
+<div v-if="currentUserInvites.accepted === 'false'">
+      <h3>Invites awaiting approval:</h3>
+    </div>
+<div v-for="invitation in currentUser.invitations" :key="invitation.id">
+      <h6>Invite from {{ invitation.host_name }}</h6>
+      <button v-on:click="showInvite(invitation)">View</button>
+      <dialog id="invite-details">
+        <form method="dialog">
+          <h2>Invitation Details</h2>
+          <h6>Invite from: {{ invitation.host_name }}</h6>
+          <h6>Game to be played: {{ invitation.game_name }}</h6>
+          <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
+          <!-- <div v-for="meetup in invitation.meetups" :key="meetup.id"> -->
+          <!-- <h6>Start Time: {{ invitation.host_name }}</h6> -->
+          <!-- <h6>Location: {{ meetup.location_name }}</h6> -->
+          <!-- </div> -->
+          <button>Close</button>
+        </form>
+      </dialog>
+      <button v-on:click="acceptInvite(invitation)">Accept</button>
+      <button v-on:click="declineInvite(invitation)">Decline</button>
+    </div>
+
+<h2>Username: {{ currentUser.username }}</h2>
+<h4>Here's your collection:</h4>
+<div v-for="currentGame in currentUser.users_games" :key="currentGame.id">
+      <router-link v-bind:to="`/games/${currentGame.id}`">
+        <h6>{{ currentGame.name }}</h6>
+        <img v-bind:src="`${currentGame.boxart}`" alt="" />
+      </router-link>
+    </div>

@@ -382,7 +382,7 @@
               <i class="icon-global fa-2x"></i>
             </div>
             <div class="media-body ">
-              <h4 class="mt-0 mb10  text-uppercase">Browse the community and make a Meetup</h4>
+              <h4 class="mt-0 mb10  text-uppercase">Browse the community</h4>
               All Board Up members can see other member's collections! Looking for someone to play Catan with? Find them
               in the database, create a meetup and get playing!
             </div>
@@ -399,7 +399,7 @@
         </div>
       </div>
     </div>
-    <div class=" pt90 pb60">
+    
       <div class="container">
         <div class="title-heading1 mb40">
           <h3>Upcoming Meetups</h3>
@@ -451,10 +451,16 @@
           </div>
         </div>
       </div>
-    </div>
+    
     <div class="col-lg-3 col-md-6 mb40">
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      <button
+        v-on:click="createMeetupForm()"
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+      >
         Create a Meetup
       </button>
       <!-- Modal -->
@@ -470,6 +476,7 @@
             <div class="modal-body">
             <p>
           Location:
+          <br>
           <input type="text" v-model="newLocation" />
         </p>
         <p>
@@ -478,6 +485,7 @@
         </p>
         <p>
           Game:
+          <br>
           <select v-model="newGameId">
             <option disabled value="">Please select one</option>
             <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
@@ -486,7 +494,9 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Create</button>
+              <button v-on:click.prevent="createMeetup()" type="button" class="btn btn-primary" data-dismiss="modal">
+                Create
+              </button>
             </div>
           </div>
         </div>
@@ -571,7 +581,7 @@ export default {
       });
     },
     createMeetupForm: function() {
-      document.querySelector("#meetup-create").showModal();
+      // document.querySelector("#meetup-create").showModal();
       axios.get("api/games").then(response => {
         console.log("All games:", response.data);
         this.games = response.data;

@@ -6,39 +6,28 @@
           <h3>Game Database</h3>
         </div>
         <h2>
-      Search:
-      <input v-model="nameFilter">
-    </h2>
-        <div class="card-group">
-          <div
-            class="col-sm-4 mb30 wow fadeInUp"
-            data-wow-delay=".2s"
-            style="width: 50rem;"
-            v-for="game in filterBy(games, nameFilter, 'name')" :key="game.id"
-          >
-            <div class="entry-card">
-              <router-link v-bind:to="`/games/${game.id}`">
-                <a href="" class="entry-thumb">
-                  <img v-bind:src="`${game.boxart}`" alt="" class="img-fluid" />
-                  <span class="thumb-hover ti-back-right"></span>
-                </a>
-              </router-link>
-              <!--/entry thumb-->
-              <div class="entry-content">
-                <div class="entry-meta mb5">
-                  <span>
-                    {{ game.name }}
-                  </span>
-                </div>
-                <div class="text-right">
-                    <a v-on:click="addGame(game)" href="" class="btn-link btn">Add to Collection</a>
-                </div>
-              </div>
-              <!--/entry content-->
-            </div>
-            <!--/.col-->
+          Search:
+          <input v-model="nameFilter" />
+        </h2>
+        <div class="card-columns">
+        <div
+          class="col-sm-4 mb30 wow fadeInUp"
+          style="max-width: 40vh; max-height: 40vh; object-fit: contain; overflow: hidden; padding-bottom: 100%;"
+          v-for="game in filterBy(games, nameFilter, 'name')"
+          :key="game.id"
+        >
+          <img class="card-img-top img-fluid" v-bind:src="`${game.boxart}`" alt="Card image cap" />
+          <div class="card-body">
+            <h4 class="card-title">
+              Card title
+            </h4>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the card's content.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
           </div>
         </div>
+       </div>
       </div>
     </div>
   </div>
@@ -89,3 +78,35 @@ export default {
       <img v-bind:src="`${game.boxart}`" alt="" />
       <button v-on:click="addGame(game)">I own this game!</button>
     </div> -->
+
+ <div class="card-group">
+          <div
+            class="col-sm-4 mb30 wow fadeInUp"
+            data-wow-delay=".2s"
+            style="width: 50rem;"
+            v-for="game in filterBy(games, nameFilter, 'name')"
+            :key="game.id"
+          >
+            <div class="entry-card">
+              <router-link v-bind:to="`/games/${game.id}`">
+                <a href="" class="entry-thumb">
+                  <img v-bind:src="`${game.boxart}`" alt="" class="img-fluid" />
+                  <span class="thumb-hover ti-back-right"></span>
+                </a>
+              </router-link>
+              <!--/entry thumb-->
+              <div class="entry-content">
+                <div class="entry-meta mb5">
+                  <span>
+                    {{ game.name }}
+                  </span>
+                </div>
+                <div class="text-right">
+                  <a v-on:click="addGame(game)" href="" class="btn-link btn">Add to Collection</a>
+                </div>
+              </div>
+              <!--/entry content-->
+            </div>
+            <!--/.col-->
+          </div>
+        </div>

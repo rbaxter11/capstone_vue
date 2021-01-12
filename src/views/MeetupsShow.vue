@@ -1,5 +1,8 @@
 <template>
   <div class="about">
+    <br />
+    <br />
+    <br />
     <h1>Meetup at: {{ meetups.location_name }}</h1>
     <h3>Game: {{ meetups.game_name }}</h3>
     <h3>Start time: {{ meetups.start_time | formatDate }}</h3>
@@ -33,11 +36,24 @@
         <button>Close</button>
       </form>
     </dialog>
-    <h1>Invite Players to meetup!</h1>
-    <div v-for="user in users" :key="user.id">
-      {{ user.username }}
-      <button v-on:click="sendInvite(user)">Invite</button>
+    <div class="title-heading1 mb60">
+      <h3>Invite some other people!</h3>
     </div>
+    <div class="row pb60">
+      <div v-for="user in users" :key="user.id" class="col-lg-3 col-md-6  mb30">
+        <div class="team-card-default">
+          <img src="images/jumbo4.jpg" alt="" class="img-fluid rounded-circle" />
+          <div class="team-default-content text-center pt30">
+            <h4 class="mb0 text-uppercase">{{ user.username }}</h4>
+            <span>overBoard Member</span>
+            <h2></h2>
+            <button class="btn btn-outline-primary" v-on:click="sendInvite(user)">Invite!</button>
+          </div>
+        </div>
+      </div>
+      <!--/col-->
+    </div>
+    
   </div>
 </template>
 
@@ -115,12 +131,20 @@ export default {
     },
   },
   filters: {
-    formatDate: function (date) {
-      return moment(date).format('MMMM Do YYYY, h:mm a');
+    formatDate: function(date) {
+      return moment(date).format("MMMM Do YYYY, h:mm a");
     },
-    fromNow: function (date) {
-      return moment(date).endOf('day').fromNow();
+    fromNow: function(date) {
+      return moment(date)
+        .endOf("day")
+        .fromNow();
     },
   },
 };
 </script>
+
+<h1>Invite Players to meetup!</h1>
+    <div v-for="user in users" :key="user.id">
+      {{ user.username }}
+      <button v-on:click="sendInvite(user)">Invite</button>
+    </div>

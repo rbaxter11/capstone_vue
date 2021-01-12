@@ -1,5 +1,6 @@
 <template>
   <div class="about">
+
     <h1>User Database</h1>
     <h4>Browse other user's collections!</h4>
     <div v-for="user in users" :key="user.id">
@@ -13,6 +14,7 @@
     </div>
   </div>
 </template>
+
 
 <script>
 import axios from "axios";

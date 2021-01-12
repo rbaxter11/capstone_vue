@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-transparent bg-dark nav-sticky">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-sticky">
       <div class="container">
         <button
           class="navbar-toggler navbar-toggler-right"
@@ -90,7 +90,7 @@
               RyanAndrewBaxter@gmail.com
             </h4>
             <a href="https://www.boardgameatlas.com/api/docs">
-            <p>Special thanks to the Board Game Atlas API!</p>
+              <p>Special thanks to the Board Game Atlas API!</p>
             </a>
           </div>
         </div>

@@ -11,7 +11,7 @@
             <h3 class="text-white text-left mb30">Join the overBoard Community!</h3>
             <form v-on:submit.prevent="submit()">
               <div class="form-group">
-                <input type="email" class="form-control" placeholder="Username" v-model="username" />
+                <input type="text" class="form-control" placeholder="Username" v-model="username" />
               </div>
               <div class="form-group">
                 <input type="email" class="form-control" placeholder="Email" v-model="email" />
