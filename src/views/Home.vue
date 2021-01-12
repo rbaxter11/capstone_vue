@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable */
+/* eslint-disable no-undef */ /* eslint-disable */
 <template>
   <div class="home">
     <!-- <ul>
@@ -405,57 +404,69 @@
     <div class="container">
       <div class="title-heading1 mb40">
         <h3>Upcoming Meetups</h3>
-            <div class="col-lg-3 col-md-6 mb40">
-      <!-- Button trigger modal -->
-      <button
-        v-on:click="createMeetupForm()"
-        type="button"
-        class="btn btn-primary btn-block mb5"
-        data-toggle="modal"
-        data-target="#myModal"
-      >
-        Create a Meetup
-      </button>
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Create a Meetup</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>
-                Location:
-                <br />
-                <input type="text" v-model="newLocation" />
-              </p>
-              <p>
-                When does it start?:
-                <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
-              </p>
-              <p>
-                Game:
-                <br />
-                <select v-model="newGameId">
-                  <option disabled value="">Please select one</option>
-                  <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
-                </select>
-              </p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button v-on:click.prevent="createMeetup()" type="button" class="btn btn-primary" data-dismiss="modal">
-                Create
-              </button>
+        <div class="col-lg-3 col-md-6 mb40">
+          <!-- Button trigger modal -->
+          <button
+            v-on:click="createMeetupForm()"
+            type="button"
+            class="btn btn-primary btn-block mb5"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            Create a Meetup
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create a Meetup</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Location</label>
+                    <div class="col-10">
+                      <input v-model="newLocation" class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="example-text-input" class="col-2 col-form-label">Address</label>
+                    <div class="col-10">
+                      <input v-model="newAddress" class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
+                    </div>
+                  </div>
+                  <p>
+                    Game:
+                    <br />
+                    <select v-model="newGameId">
+                      <option disabled value="">Please select one</option>
+                      <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
+                    </select>
+                  </p>
+                  <p>
+                    When does it start?:
+                    <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button
+                    v-on:click.prevent="createMeetup()"
+                    type="button"
+                    class="btn btn-primary"
+                    data-dismiss="modal"
+                  >
+                    Create
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+          <!--/modal-->
         </div>
-      </div>
-      <!--/modal-->
-    </div>
       </div>
       <div class="card-group">
         <div
@@ -468,17 +479,12 @@
           <div class="entry-card">
             <router-link v-bind:to="`/meetups/${meetup.id}`">
               <a href="" class="entry-thumb">
-                <img src="images/entry1.jpg" alt="" class="img-fluid" />
+                <img src="images/meetup.jpg" alt="" class="img-fluid" />
                 <span class="thumb-hover ti-back-right"></span>
               </a>
             </router-link>
             <!--/entry thumb-->
             <div class="entry-content">
-              <div class="entry-meta mb5">
-                <span>
-                  {{ meetup.start_time | formatDate }}
-                </span>
-              </div>
               <h4 class="entry-title text-capitalize">
                 <router-link v-bind:to="`/meetups/${meetup.id}`">
                   <a href="">
@@ -486,6 +492,13 @@
                   </a>
                 </router-link>
               </h4>
+              <div class="entry-meta mb5">
+                <span>
+                  {{ meetup.start_time | formatDate }}
+                </span>
+                <br />
+                <span>{{ meetup.address }}</span>
+              </div>
               <p>Game: {{ meetup.game_name }}</p>
               <p></p>
               <p>Players:</p>
@@ -564,6 +577,10 @@
           <input type="text" v-model="newLocation" />
         </p>
         <p>
+          Address:
+          <input type="text" v-model="newAddress" />
+        </p>
+        <p>
           When does it start?:
           <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
         </p>
@@ -605,6 +622,7 @@ export default {
       newGameId: "",
       newParticipantId: "",
       newStartTime: "",
+      newAddress: "",
       currentMeetup: {},
       currentUser: [],
       errors: [],
@@ -626,6 +644,7 @@ export default {
         location_name: this.newLocation,
         start_time: this.newStartTime,
         game_id: this.newGameId,
+        address: this.newAddress,
       };
       axios.post("/api/meetups", params).then(response => {
         console.log("Successfully created meetup", response.data);

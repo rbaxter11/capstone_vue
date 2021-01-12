@@ -7,7 +7,7 @@
           <br>
           <h2>{{ user.username }}'s Page</h2>
           <p class="lead">About {{ user.username }}:</p>
-          <h6>About me stuff</h6>
+          <h6>{{ user.bio }}</h6>
           <p class="lead">Games in Collection:</p>
           <p>
           <div v-for="game in user.users_games" :key="game.id">
@@ -16,7 +16,7 @@
           <a href="#" class="btn btn-primary">Invite this person to a Meetup!</a>
         </div>
         <div class="col-sm-6 mb40">
-          <img alt="" class="img-fluid" />
+          <img v-bind:src="`${user.avatar}`" alt="" class="img-fluid" />
         </div>
       </div>
     </div>

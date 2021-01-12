@@ -7,6 +7,7 @@
       <div class="row pb50 align-item-center">
         <div class="col-sm-6 mb40">
           <h2>Meetup: {{ meetups.location_name }}</h2>
+          <p class="lead">Address: {{ meetups.address }}</p>
           <p class="lead">Game: {{ meetups.game_name }}</p>
           <p class="lead">Start time: {{ meetups.start_time | formatDate }}</p>
           <p class="lead">Host: {{ meetups.host_name }}</p>
@@ -31,7 +32,7 @@
         </div>
       </div>
     </div>
-    
+
     <dialog id="meetup-details">
       <form method="dialog">
         <h1>Meetup Details</h1>
@@ -61,12 +62,45 @@
     <div class="row pb60">
       <div v-for="user in users" :key="user.id" class="col-lg-3 col-md-6  mb30">
         <div class="team-card-default">
-          <img src="images/jumbo4.jpg" alt="" class="img-fluid rounded-circle" />
+          
+          <img v-bind:src="`${user.avatar}`" alt="" class="img-fluid rounded-circle" />
           <div class="team-default-content text-center pt30">
+            <router-link v-bind:to="`/users/${user.id}`">
             <h4 class="mb0 text-uppercase">{{ user.username }}</h4>
+            </router-link>
             <span>overBoard Member</span>
             <h2></h2>
-            <button class="btn btn-outline-primary" v-on:click="sendInvite(user)">Invite!</button>
+
+            <!-- Small modal -->
+            <button
+              v-on:click="sendInvite(user)"
+              type="button"
+              class="btn btn-outline-primary"
+              data-toggle="modal"
+              data-target=".bd-example-modal-sm"
+            >
+              Invite!
+            </button>
+
+            <div
+              class="modal fade bd-example-modal-sm"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="mySmallModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Invitation Sent!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--modal-->
           </div>
         </div>
       </div>
