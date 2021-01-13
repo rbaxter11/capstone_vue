@@ -27,12 +27,12 @@
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/profile">
-                My Collection
+                My Profile
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="/users">
-                All Collections
+                Browse Members
               </a>
             </li>
             <li class="nav-item">

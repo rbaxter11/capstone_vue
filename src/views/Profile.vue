@@ -1,20 +1,31 @@
 <template>
   <div class="home">
     <br />
-    <br />
-    <br />
     <div class="container mb30">
       <article class="col-md-12 post-masonry mb40">
         <a href="#"><img src="images/collection.jpg" alt="" class="img-fluid mb20" /></a>
 
         <h3></h3>
         <div class="title-heading1 mb40">
-          <h3>{{ currentUser.username }}'s Collection</h3>
+          <h3>{{ currentUser.username }}'s Profile</h3>
         </div>
-        <a href="#"><h4 class="masonry-title mb0">A little bit about me:</h4></a>
-        <p>
-          User's about me information
-        </p>
+        <button type="button" class="btn btn-danger mb5 btn-rounded">Hey! Someone invited you to a Meetup!</button>
+        <div class="container">
+          <div class="row pb50 align-item-center">
+            <div class="col-sm-6 mb40">
+              <br />
+              <h3 class="masonry-title mb0">Username:</h3>
+              <h3 class="lead">{{ currentUser.username }}</h3>
+              <h3 class="masonry-title mb0">Bio:</h3>
+              <h3 class="lead">{{ currentUser.bio }}</h3>
+              <h3 class="masonry-title mb0">Member since:</h3>
+              <h3 class="lead">{{ currentUser.tenure | formatDate }}</h3>
+            </div>
+            <div class="col-sm-6 mb40">
+              <img v-bind:src="`${currentUser.avatar}`" alt="" class="img-fluid rounded-circle" />
+            </div>
+          </div>
+        </div>
         <a v-on:click="createGameForm()" class="btn btn-outline-secondary">Add a game to my collection</a>
         <dialog id="game-details">
           <form method="dialog">
@@ -44,11 +55,15 @@
           </form>
         </dialog>
       </article>
+      <div class="title-heading1 mb40">
+          <h3>{{ currentUser.username }}'s Collection</h3>
+        </div>
       <div class="card-columns">
         <div
           class="col-sm-4 mb30 wow fadeInUp"
           style="max-width: 40vh; max-height: relative; object-fit: contain; overflow: hidden;"
-          v-for="currentGame in currentUser.users_games" :key="currentGame.id"
+          v-for="currentGame in currentUser.users_games"
+          :key="currentGame.id"
         >
           <img
             v-bind:to="`/games/${currentGame.id}`"
@@ -64,7 +79,7 @@
             </router-link>
             <!-- <div class="col-lg-3 col-md-6 mb40"> -->
             <!-- Small modal -->
-            
+
             <!-- </div> -->
           </div>
         </div>
@@ -77,6 +92,7 @@
 
 <script>
 import axios from "axios";
+import moment from "moment";
 
 export default {
   data: function() {
@@ -125,6 +141,9 @@ export default {
         return false;
       }
     },
+    hasInvite: function() {
+      
+    },
     showInvite: function(invitation) {
       console.log("Invitation details", invitation);
       // this.currentMeetup = meetup;
@@ -145,6 +164,16 @@ export default {
       axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
         console.log("Invitation Declined!", response.data);
       });
+    },
+  },
+  filters: {
+    formatDate: function(date) {
+      return moment(date).format("MMMM Do YYYY, h:mm a");
+    },
+    fromNow: function(date) {
+      return moment(date)
+        .endOf("day")
+        .fromNow();
     },
   },
 };

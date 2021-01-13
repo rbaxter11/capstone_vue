@@ -404,12 +404,14 @@
     <div class="container">
       <div class="title-heading1 mb40">
         <h3>Upcoming Meetups</h3>
-        <div class="col-lg-3 col-md-6 mb40">
+        <br>
+        <br>
+        
           <!-- Button trigger modal -->
           <button
             v-on:click="createMeetupForm()"
             type="button"
-            class="btn btn-primary btn-block mb5"
+            class="btn btn-outline-primary mb5 btn-rounded"
             data-toggle="modal"
             data-target="#myModal"
           >
@@ -429,13 +431,25 @@
                   <div class="form-group row">
                     <label for="" class="col-2 col-form-label">Location</label>
                     <div class="col-10">
-                      <input v-model="newLocation" class="form-control" type="text" value="" />
+                      <input
+                        v-model="newLocation"
+                        class="form-control"
+                        type="text"
+                        value=""
+                        
+                      />
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="" class="col-2 col-form-label">Address</label>
                     <div class="col-10">
-                      <input v-model="newAddress" class="form-control" type="text" value="" id="" />
+                      <input
+                        v-model="newAddress"
+                        class="form-control"
+                        type="text"
+                        value=""
+                        id=""
+                      />
                     </div>
                   </div>
                   <p>
@@ -466,14 +480,14 @@
             </div>
           </div>
           <!--/modal-->
+          <div class="col-lg-3 col-md-6 mb40">
         </div>
       </div>
       <div class="row" id="blog-masonry">
-        <article v-for="meetup in meetups" :key="meetup.id" class="col-md-4 post-masonry mb40">
+        <article v-for="meetup in meetups"
+          :key="meetup.id" class="col-md-4 post-masonry mb40">
           <a href="#"><img src="images/meetup.jpg" alt="" class="img-fluid mb20" /></a>
-          <a href="#">
-            <h4 class="masonry-title mb0">{{ meetup.location_name }}</h4>
-          </a>
+          <a href="#"><h4 class="masonry-title mb0">{{ meetup.location_name }}</h4></a>
           <ul class="post-meta list-inline">
             <li class="list-inline-item">
               <i class="fa fa-user-circle-o"></i>
@@ -496,7 +510,7 @@
             {{ meetup.address }}
           </p>
           <router-link v-bind:to="`/meetups/${meetup.id}`">
-            <a href="" class="btn btn-outline-secondary btn-sm">View Meetup</a>
+          <a href="" class="btn btn-outline-primary btn-sm">View Meetup</a>
           </router-link>
         </article>
         <!--article post-->
@@ -504,6 +518,7 @@
     </div>
 
     <div class="col-lg-3 col-md-6 mb40">
+      
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -529,7 +544,7 @@
                 <br />
                 <select v-model="newGameId">
                   <option disabled value="">Please select one</option>
-                  <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
+                  <option v-for="game1 in games" :value="game1.id" :key="game1.id">{{ game1.name }}</option>
                 </select>
               </p>
             </div>
@@ -666,8 +681,8 @@ export default {
                 <span class="thumb-hover ti-back-right"></span>
               </a>
             </router-link>
-<!--/entry thumb-->
-<div class="entry-content">
+            <!--/entry thumb-->
+            <div class="entry-content">
               <h4 class="entry-title text-capitalize">
                 <router-link v-bind:to="`/meetups/${meetup.id}`">
                   <a href="">
@@ -694,4 +709,4 @@ export default {
                 </router-link>
               </div>
             </div>
-<!--/entry content-->
+            <!--/entry content-->

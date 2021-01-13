@@ -16,7 +16,7 @@
           <a href="#" class="btn btn-primary">Invite this person to a Meetup!</a>
         </div>
         <div class="col-sm-6 mb40">
-          <img v-bind:src="`${user.avatar}`" alt="" class="img-fluid" />
+          <img v-bind:src="`${user.avatar}`" alt="" class="img-fluid rounded-circle" />
         </div>
       </div>
     </div>

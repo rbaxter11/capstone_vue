@@ -4,7 +4,7 @@
       <br />
       <br />
       <div class="title-heading1 mb40">
-        <h3>All Collections</h3>
+        <h3>All overBoard Members</h3>
       </div>
       <div class="row pb60">
         <div v-for="user in users" :key="user.id" class="col-lg-3 col-md-6  mb30">
@@ -15,7 +15,7 @@
                 <h4 class="mb0 text-uppercase">{{ user.username }}</h4>
               </router-link>
               <br>
-              <span>overBoard Member since {{ user.created_at | formatDate }}</span>
+              <span>overBoard Member since {{ user.tenure | formatDate }}</span>
               <h6></h6>
               <h6>Total Games: {{ user.quantity }}</h6>
               <h6>Invitations Sent: {{ user.invites_sent }}</h6>
@@ -26,24 +26,10 @@
                 See their collection!
               </button>
               </router-link>
-              <h2></h2>
             </div>
           </div>
         </div>
         <!--/col-->
-      </div>
-      <div class="row">
-        <div v-for="user in users" :key="user.id" class="col-md-4 mb30">
-          <h4>{{ user.username }}</h4>
-          <h6>Total Games: {{ user.quantity }}</h6>
-          <h6>Games at a glance:</h6>
-          <div v-for="game in user.users_games" :key="game.id">
-            <p>{{ game.name }}</p>
-          </div>
-          <router-link v-bind:to="`/users/${user.id}`">
-            <button class="btn btn-sm btn-link btn-outline-primary">More Info</button>
-          </router-link>
-        </div>
       </div>
     </div>
   </div>
