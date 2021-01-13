@@ -429,13 +429,25 @@
                   <div class="form-group row">
                     <label for="example-text-input" class="col-2 col-form-label">Location</label>
                     <div class="col-10">
-                      <input v-model="newLocation" class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
+                      <input
+                        v-model="newLocation"
+                        class="form-control"
+                        type="text"
+                        value="Artisanal kale"
+                        id="example-text-input"
+                      />
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="example-text-input" class="col-2 col-form-label">Address</label>
                     <div class="col-10">
-                      <input v-model="newAddress" class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
+                      <input
+                        v-model="newAddress"
+                        class="form-control"
+                        type="text"
+                        value="Artisanal kale"
+                        id="example-text-input"
+                      />
                     </div>
                   </div>
                   <p>
@@ -468,53 +480,37 @@
           <!--/modal-->
         </div>
       </div>
-      <div class="card-group">
-        <div
-          class="col-sm-4 mb30 wow fadeInUp"
-          data-wow-delay=".2s"
-          style="width: 50rem;"
-          v-for="meetup in meetups"
-          :key="meetup.id"
-        >
-          <div class="entry-card">
-            <router-link v-bind:to="`/meetups/${meetup.id}`">
-              <a href="" class="entry-thumb">
-                <img src="images/meetup.jpg" alt="" class="img-fluid" />
-                <span class="thumb-hover ti-back-right"></span>
-              </a>
-            </router-link>
-            <!--/entry thumb-->
-            <div class="entry-content">
-              <h4 class="entry-title text-capitalize">
-                <router-link v-bind:to="`/meetups/${meetup.id}`">
-                  <a href="">
-                    {{ meetup.location_name }}
-                  </a>
-                </router-link>
-              </h4>
-              <div class="entry-meta mb5">
-                <span>
-                  {{ meetup.start_time | formatDate }}
-                </span>
-                <br />
-                <span>{{ meetup.address }}</span>
-              </div>
-              <p>Game: {{ meetup.game_name }}</p>
-              <p></p>
-              <p>Players:</p>
-              <div v-for="player in meetup.players" :key="player.id">
-                <p>{{ player.username }}</p>
-              </div>
-              <div class="text-right">
-                <router-link v-bind:to="`/meetups/${meetup.id}`">
-                  <a href="" class="btn-link btn">Read More</a>
-                </router-link>
-              </div>
-            </div>
-            <!--/entry content-->
-          </div>
-          <!--/.col-->
-        </div>
+      <div class="row" id="blog-masonry">
+        <article v-for="meetup in meetups"
+          :key="meetup.id" class="col-md-4 post-masonry mb40">
+          <a href="#"><img src="images/meetup.jpg" alt="" class="img-fluid mb20" /></a>
+          <a href="#"><h4 class="masonry-title mb0">{{ meetup.location_name }}</h4></a>
+          <ul class="post-meta list-inline">
+            <li class="list-inline-item">
+              <i class="fa fa-user-circle-o"></i>
+              <a href="#">{{ meetup.host_name }}</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-calendar-o"></i>
+              <a href="#">{{ meetup.start_time | formatDate }}</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-tags"></i>
+              <a href="#">{{ meetup.game_name }}</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-map-pin"></i>
+              <a href="#">{{ meetup.address }}</a>
+            </li>
+          </ul>
+          <p>
+            {{ meetup.address }}
+          </p>
+          <router-link v-bind:to="`/meetups/${meetup.id}`">
+          <a href="" class="btn btn-outline-secondary btn-sm">View Meetup</a>
+          </router-link>
+        </article>
+        <!--article post-->
       </div>
     </div>
 
@@ -569,40 +565,6 @@
       </div>
       <!--/modal-->
     </div>
-    <dialog id="meetup-create">
-      <form method="dialog">
-        <h1>Create a meetup</h1>
-        <p>
-          Location:
-          <input type="text" v-model="newLocation" />
-        </p>
-        <p>
-          Address:
-          <input type="text" v-model="newAddress" />
-        </p>
-        <p>
-          When does it start?:
-          <datetime type="datetime" v-model="newStartTime" use12-hour></datetime>
-        </p>
-        <p>
-          Game:
-          <select v-model="newGameId">
-            <option disabled value="">Please select one</option>
-            <option v-for="game in games" :value="game.id" :key="game.id">{{ game.name }}</option>
-          </select>
-        </p>
-        <!-- <p>
-          Who's joining you?:
-          <select v-model="newParticipantId">
-            <option disabled value="">Please select one</option>
-            <option v-for="user in users" :key="user.id">{{ user.username }}</option>
-          </select>
-        </p> -->
-        <button v-on:click="createMeetup()">Create</button>
-        <button>Close</button>
-      </form>
-    </dialog>
-    <a v-on:click="createMeetupForm()" class="btn btn-sm btn-rounded btn-outline-primary">Create a nkdsndMeetup</a>
   </div>
 </template>
 
@@ -718,3 +680,39 @@ export default {
       </div>
 <p>{{ meetup.start_time | formatDate }}</p>
 <p>{{ meetup.start_time | fromNow }}</p>
+
+<router-link v-bind:to="`/meetups/${meetup.id}`">
+              <a href="" class="entry-thumb">
+                <img src="images/meetup.jpg" alt="" class="img-fluid" />
+                <span class="thumb-hover ti-back-right"></span>
+              </a>
+            </router-link>
+            <!--/entry thumb-->
+            <div class="entry-content">
+              <h4 class="entry-title text-capitalize">
+                <router-link v-bind:to="`/meetups/${meetup.id}`">
+                  <a href="">
+                    {{ meetup.location_name }}
+                  </a>
+                </router-link>
+              </h4>
+              <div class="entry-meta mb5">
+                <span>
+                  {{ meetup.start_time | formatDate }}
+                </span>
+                <br />
+                <span>{{ meetup.address }}</span>
+              </div>
+              <p>Game: {{ meetup.game_name }}</p>
+              <p></p>
+              <p>Players:</p>
+              <div v-for="player in meetup.players" :key="player.id">
+                <p>{{ player.username }}</p>
+              </div>
+              <div class="text-right">
+                <router-link v-bind:to="`/meetups/${meetup.id}`">
+                  <a href="" class="btn-link btn">Read More</a>
+                </router-link>
+              </div>
+            </div>
+            <!--/entry content-->

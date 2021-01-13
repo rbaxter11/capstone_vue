@@ -27,6 +27,15 @@
                   v-model="passwordConfirmation"
                 />
               </div>
+              <hr />
+              <div class="text-center text-white-gray">Tell us a little more about yourself!</div>
+              <br>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Avatar/Profile Picture" v-model="avatar" />
+              </div>
+              <div class="form-group">
+                <textarea type="textarea" class="form-control" placeholder="A Short Bio" v-model="bio" />
+              </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-rounded btn-primary btn-block">Sign Up</button>
               </div>
@@ -57,6 +66,8 @@ export default {
       email: "",
       password: "",
       passwordConfirmation: "",
+      bio: "",
+      avatar: "",
       errors: [],
     };
   },
@@ -67,6 +78,8 @@ export default {
         email: this.email,
         password: this.password,
         password_confirmation: this.passwordConfirmation,
+        bio: this.bio,
+        avatar: this.avatar,
       };
       axios
         .post("/api/users", params)

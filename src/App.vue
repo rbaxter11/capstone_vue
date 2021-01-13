@@ -40,29 +40,23 @@
                 Game Database
               </a>
             </li>
-            <li class="nav-item">
+            <li v-if="!isLoggedIn()" class="nav-item">
+              <a class="nav-link active" href="/signup">
+                Sign Up
+              </a>
+            </li>
+            <li v-if="!isLoggedIn()" class="nav-item">
               <a class="nav-link active" href="/login">
                 Login
               </a>
             </li>
-            <li class="nav-item">
+            <li v-if="isLoggedIn()" class="nav-item">
               <a class="nav-link active" href="/logout">
-                Sign Out
+                Logout
               </a>
             </li>
           </ul>
         </div>
-        <div class=" navbar-right-elements">
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <a href="javascript:void(0)" class=" menu-btn">
-                <i class="ti-shopping-cart"></i>
-                <span class="badge badge-default">3</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!--right nav icons-->
       </div>
     </nav>
     <router-view />
@@ -105,6 +99,20 @@ body {
   background-image: url("/images/memphis-mini.png");
 }
 </style>
+
+<script>
+export default {
+  methods: {
+    isLoggedIn: function() {
+      if (localStorage.getItem("jwt")) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+};
+</script>
 
 <div>
         <a class="nav-link active" href="/profile">
