@@ -427,27 +427,15 @@
                 </div>
                 <div class="modal-body">
                   <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Location</label>
+                    <label for="" class="col-2 col-form-label">Location</label>
                     <div class="col-10">
-                      <input
-                        v-model="newLocation"
-                        class="form-control"
-                        type="text"
-                        value="Artisanal kale"
-                        id="example-text-input"
-                      />
+                      <input v-model="newLocation" class="form-control" type="text" value="" />
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Address</label>
+                    <label for="" class="col-2 col-form-label">Address</label>
                     <div class="col-10">
-                      <input
-                        v-model="newAddress"
-                        class="form-control"
-                        type="text"
-                        value="Artisanal kale"
-                        id="example-text-input"
-                      />
+                      <input v-model="newAddress" class="form-control" type="text" value="" id="" />
                     </div>
                   </div>
                   <p>
@@ -481,10 +469,11 @@
         </div>
       </div>
       <div class="row" id="blog-masonry">
-        <article v-for="meetup in meetups"
-          :key="meetup.id" class="col-md-4 post-masonry mb40">
+        <article v-for="meetup in meetups" :key="meetup.id" class="col-md-4 post-masonry mb40">
           <a href="#"><img src="images/meetup.jpg" alt="" class="img-fluid mb20" /></a>
-          <a href="#"><h4 class="masonry-title mb0">{{ meetup.location_name }}</h4></a>
+          <a href="#">
+            <h4 class="masonry-title mb0">{{ meetup.location_name }}</h4>
+          </a>
           <ul class="post-meta list-inline">
             <li class="list-inline-item">
               <i class="fa fa-user-circle-o"></i>
@@ -507,7 +496,7 @@
             {{ meetup.address }}
           </p>
           <router-link v-bind:to="`/meetups/${meetup.id}`">
-          <a href="" class="btn btn-outline-secondary btn-sm">View Meetup</a>
+            <a href="" class="btn btn-outline-secondary btn-sm">View Meetup</a>
           </router-link>
         </article>
         <!--article post-->
@@ -515,16 +504,6 @@
     </div>
 
     <div class="col-lg-3 col-md-6 mb40">
-      <!-- Button trigger modal -->
-      <button
-        v-on:click="createMeetupForm()"
-        type="button"
-        class="btn btn-primary btn-block mb5"
-        data-toggle="modal"
-        data-target="#myModal"
-      >
-        Create a Meetup
-      </button>
       <!-- Modal -->
       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -687,8 +666,8 @@ export default {
                 <span class="thumb-hover ti-back-right"></span>
               </a>
             </router-link>
-            <!--/entry thumb-->
-            <div class="entry-content">
+<!--/entry thumb-->
+<div class="entry-content">
               <h4 class="entry-title text-capitalize">
                 <router-link v-bind:to="`/meetups/${meetup.id}`">
                   <a href="">
@@ -715,4 +694,4 @@ export default {
                 </router-link>
               </div>
             </div>
-            <!--/entry content-->
+<!--/entry content-->

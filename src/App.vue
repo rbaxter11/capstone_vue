@@ -60,37 +60,6 @@
       </div>
     </nav>
     <router-view />
-    <footer class="footer footer-dark pt50 pb30">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6  ml-auto mr-auto text-center">
-            <ul class="social-icons list-inline">
-              <p>overBoard is made by Ryan Baxter</p>
-              <li class="list-inline-item">
-                <a href="https://www.linkedin.com/in/ryanbaxter/">
-                  <i class="fa fa-linkedin"></i>
-                  LinkedIn
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="https://github.com/rbaxter11">
-                  <i class="fa fa-github"></i>
-                  GitHub
-                </a>
-              </li>
-            </ul>
-            <h4>
-              <i class="fa fa-envelope"></i>
-              RyanAndrewBaxter@gmail.com
-            </h4>
-            <a href="https://www.boardgameatlas.com/api/docs">
-              <p>Special thanks to the Board Game Atlas API!</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!--/footer-->
   </div>
 </template>
 
