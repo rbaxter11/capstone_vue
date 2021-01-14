@@ -15,104 +15,9 @@
             <input placeholder="search here!" v-model="nameFilter" />
           </h3>
           <p>Don't see your game listed? Feel free to add it to our database!</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-            Default Modal
-          </button>
-          <!-- Modal -->
-          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Enter Game Details</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Name:</label>
-                    <div class="col-10">
-                      <input class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleSelect1">Number of Players:</label>
-                    <select class="form-control" id="exampleSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5+</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="exampleSelect1">Minimum Age Requirement:</label>
-                    <select class="form-control" id="exampleSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>6</option>
-                      <option>7</option>
-                      <option>8</option>
-                      <option>9</option>
-                      <option>10</option>
-                      <option>11</option>
-                      <option>12</option>
-                      <option>13</option>
-                      <option>14</option>
-                      <option>15</option>
-                      <option>16</option>
-                    </select>
-                  </div>
-                  <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Duration (in Minutes):</label>
-                    <div class="col-10">
-                      <input class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="example-text-input" class="col-2 col-form-label">Link Some Boxart:</label>
-                    <div class="col-10">
-                      <input class="form-control" type="text" value="Artisanal kale" id="example-text-input" />
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--/modal-->
           <a v-on:click="createGameForm()" class="btn btn-outline-secondary">Add a game to the Database</a>
           <dialog id="game-details">
-            <form method="dialog">
-              <h1>Add a Game</h1>
-              <p>
-                Name:
-                <input type="text" v-model="newName" />
-              </p>
-              <p>
-                Number of Players:
-                <input type="text" v-model="newNum" />
-              </p>
-              <p>
-                Duration:
-                <input type="text" v-model="newDuration" />
-              </p>
-              <p>
-                How old should you be to play?:
-                <input type="text" v-model="newDifficulty" />
-              </p>
-              <p>
-                Link some boxart:
-                <input type="text" v-model="newBoxart" />
-              </p>
-              <button v-on:click="createGame()">Create</button>
-              <button>Close</button>
-            </form>
+           
           </dialog>
         </div>
         <div class="card-columns">
@@ -251,3 +156,29 @@ export default {
             <!--/.col-->
           </div>
         </div>
+modal stuff
+ <form method="dialog">
+              <h1>Add a Game</h1>
+              <p>
+                Name:
+                <input type="text" v-model="newName" />
+              </p>
+              <p>
+                Number of Players:
+                <input type="text" v-model="newNum" />
+              </p>
+              <p>
+                Duration:
+                <input type="text" v-model="newDuration" />
+              </p>
+              <p>
+                How old should you be to play?:
+                <input type="text" v-model="newDifficulty" />
+              </p>
+              <p>
+                Link some boxart:
+                <input type="text" v-model="newBoxart" />
+              </p>
+              <button v-on:click="createGame()">Create</button>
+              <button>Close</button>
+            </form>

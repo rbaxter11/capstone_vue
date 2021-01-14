@@ -296,7 +296,7 @@
               data-paddingleft="[0,0,0,0]"
               style="z-index: 6; text-align:center; white-space: normal;"
             >
-              Smooth parallax videos
+              Browse over 100 games in our Game Database!
             </div>
             <!-- LAYER NR. 3 -->
             <div
@@ -321,7 +321,6 @@
               data-paddingleft="[0,0,0,0]"
               style="z-index: 6; text-align:left; max-width:1170px; white-space: normal;"
             >
-              Create a smooth parallax video background with assan easily
             </div>
           </li>
         </ul>
@@ -486,8 +485,8 @@
       <div class="row" id="blog-masonry">
         <article v-for="meetup in meetups"
           :key="meetup.id" class="col-md-4 post-masonry mb40">
-          <a href="#"><img src="images/meetup.jpg" alt="" class="img-fluid mb20" /></a>
-          <a href="#"><h4 class="masonry-title mb0">{{ meetup.location_name }}</h4></a>
+          <a><img src="images/meetup.jpg" alt="" class="img-fluid mb20" /></a>
+          <a><h4 class="masonry-title mb0">{{ meetup.location_name }}</h4></a>
           <ul class="post-meta list-inline">
             <li class="list-inline-item">
               <i class="fa fa-user-circle-o"></i>

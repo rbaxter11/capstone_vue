@@ -1,8 +1,6 @@
 <template>
   <div class="about">
     <br />
-    <br />
-    <br />
     <div class="container">
       <div class="row pb50 align-item-center">
         <div class="col-sm-6 mb40">
@@ -60,11 +58,10 @@
     <div class="row pb60">
       <div v-for="user in users" :key="`user_${user.id}`" class="col-lg-3 col-md-6  mb30">
         <div class="team-card-default">
-          
           <img v-bind:src="`${user.avatar}`" alt="" class="img-fluid rounded-circle" />
           <div class="team-default-content text-center pt30">
             <router-link v-bind:to="`/users/${user.id}`">
-            <h4 class="mb0 text-uppercase">{{ user.username }}</h4>
+              <h4 class="mb0 text-uppercase">{{ user.username }}</h4>
             </router-link>
             <span>overBoard Member</span>
             <h2></h2>
@@ -171,6 +168,7 @@ export default {
       axios.post("api/meetup_invitations/", params).then(response => {
         console.log("Invitation sent!"), response.data;
       });
+      setTimeout(() => this.$router.go(), 1000);
     },
     isLoggedIn: function() {
       if (localStorage.getItem("jwt")) {
