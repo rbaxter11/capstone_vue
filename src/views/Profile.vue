@@ -10,26 +10,17 @@
           <h3>{{ currentUser.username }}'s Profile</h3>
         </div>
         <div v-for="invitation in currentUser.invitations" :key="invitation.id">
-          <h6>Invite from {{ invitation.host_name }}</h6>
-          <button v-on:click="showInvite(invitation)">View</button>
-          <button v-on:click="acceptInvite(invitation)">Accept</button>
-          <button v-on:click="declineInvite(invitation)">Decline</button>
+          <div v-if="invitation.accepted === false">
+            <h6>Invite from {{ invitation.host_name }}</h6>
+            <button v-on:click="showInvite(invitation)">View</button>
+            <button v-on:click="acceptInvite(invitation)">Accept</button>
+            <button v-on:click="declineInvite(invitation)">Decline</button>
+          </div>
+
+          <button v-if="invitation.accepted === false" type="button" class="btn btn-danger mb5 btn-rounded">
+            Hey! Someone invited you to a Meetup!
+          </button>
         </div>
-        <dialog id="invite-details">
-          <form method="dialog">
-            <h2>Invitation Details</h2>
-            <h2>ID: {{ currentInvite.id }}</h2>
-            <h6>Invite from: {{ currentInvite.host_name }}</h6>
-            <h6>Game to be played: {{ currentInvite.game_name }}</h6>
-            <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
-            <!-- <div v-for="meetup in invitation.meetups" :key="meetup.id"> -->
-            <!-- <h6>Start Time: {{ invitation.host_name }}</h6> -->
-            <!-- <h6>Location: {{ meetup.location_name }}</h6> -->
-            <!-- </div> -->
-            <button>Close</button>
-          </form>
-        </dialog>
-        <button type="button" class="btn btn-danger mb5 btn-rounded">Hey! Someone invited you to a Meetup!</button>
         <div class="container">
           <div class="row pb50 align-item-center">
             <div class="col-sm-6 mb40">
@@ -46,6 +37,20 @@
             </div>
           </div>
         </div>
+        <dialog id="invite-details">
+          <form method="dialog">
+            <h2>Invitation Details</h2>
+            <h2>ID: {{ currentInvite.id }}</h2>
+            <h6>Invite from: {{ currentInvite.host_name }}</h6>
+            <h6>Game to be played: {{ currentInvite.game_name }}</h6>
+            <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
+            <!-- <div v-for="meetup in invitation.meetups" :key="meetup.id"> -->
+            <!-- <h6>Start Time: {{ invitation.host_name }}</h6> -->
+            <!-- <h6>Location: {{ meetup.location_name }}</h6> -->
+            <!-- </div> -->
+            <button>Close</button>
+          </form>
+        </dialog>
         <a v-on:click="createGameForm()" class="btn btn-outline-secondary">Add a game to my collection</a>
         <dialog id="game-details">
           <form method="dialog">
@@ -162,7 +167,6 @@ export default {
         return false;
       }
     },
-    hasInvite: function() {},
     showInvite: function(invitation) {
       console.log("Invitation details", invitation);
       this.currentInvite = invitation;
@@ -177,11 +181,14 @@ export default {
       });
     },
     declineInvite: function(invitation) {
-      var params = {
-        accepted: false,
-      };
-      axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
-        console.log("Invitation Declined!", params, response.data);
+      // var params = {
+      //   accepted: false,
+      // };
+      // axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
+      //   console.log("Invitation Declined!", params, response.data);
+      // });
+      axios.delete("api/meetup_invitations/" + invitation.id).then(response => {
+        console.log("Invitation Declined!", response.data);
       });
     },
   },
