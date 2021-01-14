@@ -12,23 +12,21 @@
           <p class="lead">Start time: {{ meetups.start_time | formatDate }}</p>
           <p class="lead">Host: {{ meetups.host_name }}</p>
           <p>
+            Pending Invites:
+          </p>
+          <div v-for="invitation in meetups.invitations" :key="`pending_invitation_${invitation.id}`">
+            <h6 v-if="invitation.accepted === false">{{ invitation.user.username }}</h6>
+          </div>
+          <p>
             Attending Players:
           </p>
-          <div v-for="player in meetups.players" :key="player.id">
-            <h6>{{ player.username }}</h6>
+          <div v-for="invitation in meetups.invitations" :key="`attending_invitation_${invitation.id}`">
+            <h6 v-if="invitation.accepted === true">{{ invitation.user.username }}</h6>
           </div>
           <a v-on:click="showMeetup(meetups)" href="#" class="btn btn-secondary">Edit Meetup</a>
         </div>
         <div class="col-sm-6 mb40">
-          <div class="carousel-image owl-carousel owl-theme carousel-dark">
-            <div class="item">
-              <img src="images/contained1.jpg" alt="" class="img-fluid" />
-            </div>
-            <div class="item">
-              <img src="images/contained2.jpg" alt="" class="img-fluid" />
-            </div>
-          </div>
-          <!-- /Carousel -->
+          <img src="images/meetup.jpg" alt="" class="img-fluid" />
         </div>
       </div>
     </div>
@@ -60,7 +58,7 @@
       <h3>Invite some other people!</h3>
     </div>
     <div class="row pb60">
-      <div v-for="user in users" :key="user.id" class="col-lg-3 col-md-6  mb30">
+      <div v-for="user in users" :key="`user_${user.id}`" class="col-lg-3 col-md-6  mb30">
         <div class="team-card-default">
           
           <img v-bind:src="`${user.avatar}`" alt="" class="img-fluid rounded-circle" />
