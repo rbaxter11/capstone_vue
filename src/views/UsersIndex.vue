@@ -20,7 +20,9 @@
               <h6>Total Games: {{ user.quantity }}</h6>
               <h6>Invitations Sent: {{ user.invites_sent }}</h6>
               <h6>Recent Games:</h6>
-              <span>{{ user.first_game }}</span>
+              <div v-for="game in user.last_three_games" :key="`game_${game.id}_user_${user.id}`">
+                <p>{{ game.name }}</p>
+              </div>
               <router-link v-bind:to="`/users/${user.id}`">
               <button type="button" class="btn btn-outline-info mb5">
                 See their collection!
