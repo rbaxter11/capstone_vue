@@ -181,7 +181,7 @@ export default {
         accepted: false,
       };
       axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
-        console.log("Invitation Declined!", response.data);
+        console.log("Invitation Declined!", params, response.data);
       });
     },
   },
