@@ -40,7 +40,6 @@
         <dialog id="invite-details">
           <form method="dialog">
             <h2>Invitation Details</h2>
-            <h2>ID: {{ currentInvite.id }}</h2>
             <h6>Invite from: {{ currentInvite.host_name }}</h6>
             <h6>Game to be played: {{ currentInvite.game_name }}</h6>
             <!-- This still doesn't work fully, trying to get location_name and host_name of meetup to display in modal -->
@@ -179,6 +178,7 @@ export default {
       axios.patch("api/meetup_invitations/" + invitation.id, params).then(response => {
         console.log("Invitation Accepted!", response.data);
       });
+    this.$router.go();
     },
     declineInvite: function(invitation) {
       // var params = {

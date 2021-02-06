@@ -11,9 +11,8 @@
           <p class="lead">Duration: {{ game.duration }}</p>
           <p>
           <p class="lead">Difficulty (Minimum Age): {{ game.difficulty }}</p>
-          <p>
-            Game Description:
-          </p>
+          <p>Game Description:</p>
+          <div v-html="game.description"></div>
           <a v-on:click="deleteGame(game)" href="#" class="btn btn-primary">Remove this game from my collection</a>
         </div>
         <div class="col-sm-6 mb40">
